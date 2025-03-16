@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 import component.AnimatedSection
 import component.Footer
 import org.jetbrains.compose.resources.stringResource
-import portfolio.shared.generated.resources.Res
-import portfolio.shared.generated.resources.biography
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.biography
 
 @Composable
 internal fun BiographySection(

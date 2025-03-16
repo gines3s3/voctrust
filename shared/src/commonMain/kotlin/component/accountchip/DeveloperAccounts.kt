@@ -5,11 +5,11 @@ import androidx.compose.ui.graphics.Color
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import portfolio.shared.generated.resources.*
-import portfolio.shared.generated.resources.Res
-import portfolio.shared.generated.resources.github
-import portfolio.shared.generated.resources.href_github
-import portfolio.shared.generated.resources.lapras
+import voctrust.shared.generated.resources.*
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.github
+import voctrust.shared.generated.resources.href_github
+import voctrust.shared.generated.resources.lapras
 
 @Suppress("MagicNumber")
 @Composable

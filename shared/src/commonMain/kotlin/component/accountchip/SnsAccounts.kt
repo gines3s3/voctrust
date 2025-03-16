@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.Color
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import portfolio.shared.generated.resources.*
+import voctrust.shared.generated.resources.*
 
 @Composable
 internal fun X() = AccountLink(

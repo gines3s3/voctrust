@@ -14,7 +14,7 @@ import component.icon.MyFavourite
 import config.*
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.stringResource
-import portfolio.shared.generated.resources.*
+import voctrust.shared.generated.resources.*
 import theme.scheme.*
 
 @Composable

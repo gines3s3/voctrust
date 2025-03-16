@@ -8,7 +8,7 @@ import androidx.compose.material.icons.filled.Movie
 import androidx.compose.ui.graphics.vector.ImageVector
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
-import portfolio.shared.generated.resources.*
+import voctrust.shared.generated.resources.*
 
 internal data class Work(
     val headline: StringResource,

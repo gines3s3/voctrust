@@ -13,8 +13,8 @@ import component.icon.DescriptionKotlin
 import component.icon.MyFavourite
 import component.icon.MyFavouriteImageSize
 import org.jetbrains.compose.resources.imageResource
-import portfolio.shared.generated.resources.Res
-import portfolio.shared.generated.resources.kotlin
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.kotlin
 import kotlin.test.Test
 
 @OptIn(ExperimentalTestApi::class)

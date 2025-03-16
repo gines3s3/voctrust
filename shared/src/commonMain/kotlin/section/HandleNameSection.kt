@@ -15,10 +15,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.stringResource
-import portfolio.shared.generated.resources.Res
-import portfolio.shared.generated.resources.icon
-import portfolio.shared.generated.resources.id
-import portfolio.shared.generated.resources.name
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.icon
+import voctrust.shared.generated.resources.id
+import voctrust.shared.generated.resources.name
 
 @Composable
 internal fun HandleNameSection() = Column(

@@ -6,9 +6,9 @@ import config.isLight
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import portfolio.shared.generated.resources.*
-import portfolio.shared.generated.resources.Res
-import portfolio.shared.generated.resources.wantedly_dark
+import voctrust.shared.generated.resources.*
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.wantedly_dark
 
 @Composable
 internal fun Wantedly() = AccountLink(

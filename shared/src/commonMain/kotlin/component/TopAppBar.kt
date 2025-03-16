@@ -18,8 +18,8 @@ import config.ColorTheme
 import config.LocalAppConfigState
 import config.isLight
 import org.jetbrains.compose.resources.stringResource
-import portfolio.shared.generated.resources.Res
-import portfolio.shared.generated.resources.title
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.title
 import androidx.compose.material3.TopAppBar as M3TopAppBar
 
 @Composable

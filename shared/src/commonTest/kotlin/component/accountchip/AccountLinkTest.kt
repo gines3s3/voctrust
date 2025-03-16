@@ -5,8 +5,8 @@ import androidx.compose.ui.test.*
 import assertion.assertsEqualsHref
 import mock.mockWindowOpen
 import org.jetbrains.compose.resources.*
-import portfolio.shared.generated.resources.Res
-import portfolio.shared.generated.resources.lapras
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.lapras
 import kotlin.test.Test
 
 private const val SITE_NAME = "Site Name"

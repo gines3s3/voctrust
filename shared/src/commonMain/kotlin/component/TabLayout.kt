@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import config.MinWidth
 import org.jetbrains.compose.resources.StringResource
-import portfolio.shared.generated.resources.*
+import voctrust.shared.generated.resources.*
 
 enum class ContentTab(
     val label: StringResource,

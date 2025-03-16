@@ -16,8 +16,8 @@ import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.stringResource
-import portfolio.shared.LAST_MODIFIED_DATE_TIME
-import portfolio.shared.generated.resources.*
+import voctrust.shared.LAST_MODIFIED_DATE_TIME
+import voctrust.shared.generated.resources.*
 import utils.openWindow
 
 @Composable
