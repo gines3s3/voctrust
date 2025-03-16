@@ -1,6 +1,6 @@
 package component
 
-import PortfolioTag
+import VOCTag
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,7 +21,7 @@ internal fun IconGrid(
         resource.toList().chunked(chunkedSize).forEach { row ->
             Row(
                 modifier = Modifier.padding(vertical = 8.dp)
-                    .testTag(PortfolioTag.ICON_GRID_ROW),
+                    .testTag(VOCTag.ICON_GRID_ROW),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 row.forEach { (drawable, string, onClick) ->

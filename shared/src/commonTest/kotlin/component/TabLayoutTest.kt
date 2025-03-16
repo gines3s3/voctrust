@@ -20,11 +20,11 @@ private const val CONTENT_TAG = "content"
 class TabLayoutTest {
     @Test
     fun shouldChangeContentTab() = runComposeUiTest {
-        val tabState = mutableStateOf(ContentTab.Biography)
+        val tabState = mutableStateOf(ContentTab.HOME)
 
         setContent {
             TabLayout(
-                ContentTab.Biography,
+                ContentTab.HOME,
                 tabState = tabState,
                 tabs = { currentTab ->
                     ContentTab.entries.forEach { tab ->
@@ -46,9 +46,9 @@ class TabLayoutTest {
             }
         }
 
-        assertContentTab(tabState, ContentTab.MyFavorites)
-        assertContentTab(tabState, ContentTab.Works)
-        assertContentTab(tabState, ContentTab.Biography)
+        assertContentTab(tabState, ContentTab.ABOUT_US)
+        assertContentTab(tabState, ContentTab.GET_INVOLVED)
+        assertContentTab(tabState, ContentTab.HOME)
     }
 
     private fun ComposeUiTest.assertContentTab(

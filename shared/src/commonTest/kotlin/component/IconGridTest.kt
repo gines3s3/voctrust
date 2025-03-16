@@ -27,7 +27,7 @@ class IconGridTest {
             }
         }
 
-        onAllNodes(hasTestTag(PortfolioTag.ICON_GRID_ROW))
+        onAllNodes(hasTestTag(VOCTag.ICON_GRID_ROW))
             .assertCountEquals(1)
     }
 
@@ -39,7 +39,7 @@ class IconGridTest {
             }
         }
 
-        onAllNodes(hasTestTag(PortfolioTag.ICON_GRID_ROW))
+        onAllNodes(hasTestTag(VOCTag.ICON_GRID_ROW))
             .assertCountEquals(2)
     }
 
@@ -51,7 +51,7 @@ class IconGridTest {
             }
         }
 
-        onAllNodes(hasTestTag(PortfolioTag.ICON_GRID_ROW))
+        onAllNodes(hasTestTag(VOCTag.ICON_GRID_ROW))
             .assertCountEquals(3)
     }
 

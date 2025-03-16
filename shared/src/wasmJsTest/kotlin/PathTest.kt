@@ -8,10 +8,10 @@ class PathTest {
     @Test
     fun testBuildContentPath() {
         listOf(
-            "" to ContentTab.Biography,
-            "my_fave" to ContentTab.MyFavorites,
-            "works" to ContentTab.Works,
-            "unknown_path" to ContentTab.Biography,
+            "" to ContentTab.HOME,
+            "my_fave" to ContentTab.ABOUT_US,
+            "works" to ContentTab.GET_INVOLVED,
+            "unknown_path" to ContentTab.HOME,
         ).forEach { (path, tab) ->
             window.history.replaceState(null, "", "/$path")
             assertEquals(tab, buildContentPath())

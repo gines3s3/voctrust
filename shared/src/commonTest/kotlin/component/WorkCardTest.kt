@@ -1,6 +1,6 @@
 package component
 
-import PortfolioTag
+import VOCTag
 import androidx.compose.foundation.Image
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Description
@@ -94,16 +94,16 @@ class WorkCardTest {
             )
         }
 
-        onNodeWithTag(PortfolioTag.WORK_CARD_TAG)
+        onNodeWithTag(VOCTag.WORK_CARD_TAG)
             .assertTextEquals(WORK_TYPE)
 
-        onNodeWithTag(PortfolioTag.WORK_CARD_HEADLINE)
+        onNodeWithTag(VOCTag.WORK_CARD_HEADLINE)
             .assertTextEquals(WORK_HEADLINE)
 
-        onNodeWithTag(PortfolioTag.WORK_CARD_DESCRIPTION)
+        onNodeWithTag(VOCTag.WORK_CARD_DESCRIPTION)
             .assertTextEquals(WORK_DESCRIPTION)
 
-        onNodeWithTag(PortfolioTag.WORK_CARD_TIME)
+        onNodeWithTag(VOCTag.WORK_CARD_TIME)
             .assertTextEquals(time.toString())
 
         links.forEach { (href, _, _, contentDescription) ->

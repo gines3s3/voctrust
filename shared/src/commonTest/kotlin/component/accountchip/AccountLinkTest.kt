@@ -1,6 +1,6 @@
 package component.accountchip
 
-import PortfolioTag
+import VOCTag
 import androidx.compose.ui.test.*
 import assertion.assertsEqualsHref
 import mock.mockWindowOpen
@@ -26,7 +26,7 @@ class AccountLinkTest {
             )
         }
 
-        onNodeWithTag(PortfolioTag.ACCOUNT_LINK)
+        onNodeWithTag(VOCTag.ACCOUNT_LINK)
             .assertTextEquals(SITE_NAME)
             .performClick()
 

@@ -1,4 +1,4 @@
-internal object PortfolioTag {
+internal object VOCTag {
     const val ACCOUNT_LINK = "AccountLink"
 
     const val CARD_GRID_COLUMN = "CardGridColumn"

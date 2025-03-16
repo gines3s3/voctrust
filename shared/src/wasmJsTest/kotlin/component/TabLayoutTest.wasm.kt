@@ -9,11 +9,11 @@ class TabLayoutTestWasm {
     @Test
     fun HandleTabChange_shouldChangeLocationPathname() {
         listOf(
-            ContentTab.Biography to "",
-            ContentTab.MyFavorites to "my_fave",
-            ContentTab.Works to "works",
+            ContentTab.HOME to "",
+            ContentTab.ABOUT_US to "my_fave",
+            ContentTab.GET_INVOLVED to "works",
         ).forEach { (tab, path) ->
-            val state = mutableStateOf(ContentTab.Biography)
+            val state = mutableStateOf(ContentTab.HOME)
             state.handleTabChange(tab)
 
             assertEquals(tab, state.value)

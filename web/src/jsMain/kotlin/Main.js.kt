@@ -7,7 +7,7 @@ import utils.buildContentPath
 fun main() {
     onWasmReady {
         CanvasBasedWindow(
-            "Subroh Nishikori's Portfolio",
+            "VOC Youth Social Welfare Trust",
             canvasElementId = "PortfolioCanvas",
         ) {
             PortfolioApp(

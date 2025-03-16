@@ -36,7 +36,7 @@ internal fun AccountLink(
         )
     },
     modifier = Modifier.pointerHoverIcon(PointerIcon.Hand)
-        .testTag(PortfolioTag.ACCOUNT_LINK),
+        .testTag(VOCTag.ACCOUNT_LINK),
 )
 
 @Composable

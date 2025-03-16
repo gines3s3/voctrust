@@ -22,7 +22,7 @@ class CardGridTest {
             }
         }
 
-        onAllNodes(hasTestTag(PortfolioTag.CARD_GRID_COLUMN))
+        onAllNodes(hasTestTag(VOCTag.CARD_GRID_COLUMN))
             .assertCountEquals(1)
     }
 
@@ -34,7 +34,7 @@ class CardGridTest {
             }
         }
 
-        onAllNodes(hasTestTag(PortfolioTag.CARD_GRID_COLUMN))
+        onAllNodes(hasTestTag(VOCTag.CARD_GRID_COLUMN))
             .assertCountEquals(2)
     }
 

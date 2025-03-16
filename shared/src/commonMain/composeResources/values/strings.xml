@@ -1,25 +1,25 @@
 <resources>
-    <string name="title">Subroh Nisikori's Portfolio</string>
-    <string name="name">にしこりさぶろ〜</string>
+    <string name="title">VOC Youth Social Welfare Trust</string>
+    <string name="name">Subroh Nishikori</string>
     <string name="id">@subroh_0508</string>
 
-    <string name="movie">動画</string>
-    <string name="slide">資料</string>
-    <string name="try_it_now">使ってみる</string>
-    <string name="repository">レポジトリ</string>
+    <string name="movie">Movie</string>
+    <string name="slide">Slide</string>
+    <string name="try_it_now">Try it now</string>
+    <string name="repository">Repository</string>
 
-    <string name="conference">カンファレンス</string>
-    <string name="study_meeting">勉強会</string>
-    <string name="personal_project">個人開発</string>
+    <string name="conference">Conference</string>
+    <string name="study_meeting">Study Meeting</string>
+    <string name="personal_project">Personal Project</string>
 
-    <string name="last_modified">最終更新日: %1$s</string>
-    <string name="sourcecode">ソースコード</string>
+    <string name="last_modified">Last Modified: %1$s</string>
+    <string name="sourcecode">Source Code</string>
 
     <string name="x">X.com</string>
     <string name="href_x">https://x.com/subroh_0508</string>
 
-    <string name="mixi2">mixi2</string>
-    <string name="href_mixi2">https://mixi.social/@subroh_0508</string>
+    <string name="bluesky">Bluesky</string>
+    <string name="href_bluesky">https://bsky.app/profile/subroh0508.bsky.social</string>
 
     <string name="facebook">Facebook</string>
     <string name="href_facebook">https://www.facebook.com/harunobu.sakaue</string>
@@ -36,33 +36,56 @@
     <string name="youtrust">YOUTRUST</string>
     <string name="href_youtrust">https://youtrust.jp/users/subroh_0508</string>
 
-    <string name="tab_biography">経歴</string>
-    <string name="tab_my_favourites">推し</string>
-    <string name="tab_works">実績</string>
+    <string name="instagram">vocyouthsocialwelfare</string>
+    <string name="href_instagram">https://www.instagram.com/vocyouthsocialwelfare/</string>
 
-    <string name="biography">1995年生まれ。東京の離島・伊豆大島出身。メインの技術スタックはKotlin・Android・Rails・React。\n\n東京高専情報工学科を卒業後、2016年4月に株式会社TOKIUMに新卒入社。6年半に渡りAndroid・Webの領域でプレイングマネージャーとして経験を積み、2023年1月からはDevHRとしてエンジニア採用・組織づくりの業務にフルコミットで携わる。\n\nKotlinとアイドルマスターをこよなく愛する。アイマスPとしての時間を積み重ねていたら、現実の仕事もプロデューサー業っぽくなってきた。2023年末の異次元フェスで脳が破壊され、最近はラブライブ！にも手を伸ばしつつある。</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_about_us">About Us</string>
+    <string name="tab_services">Services</string>
+    <string name="tab_gallery">Gallery</string>
+    <string name="tab_contact_us">Contact Us</string>
 
-    <string name="label_my_dearest">担当アイドル</string>
-    <string name="label_love">推し</string>
+    <string name="home_welcome_text">
+Welcome to VOC Youth Social Welfare Trust!
+
+We are a charitable trust dedicated to social welfare initiatives in Tamil Nadu. Our mission is to uplift underprivileged communities by providing education, healthcare, and support services.
+
+<b>Key Initiatives:</b>
+• Community development programs
+• Educational support for children
+    </string>
+
+    <string name="about_us_values_vision">
+<b>Our Team</b>
+A dedicated group of volunteers and professionals work towards achieving our vision.
+
+<b>Values &amp; Vision</b>
+
+• Integrity and transparency
+• Commitment to social change
+• Community-driven development
+    </string>
+
+    <string name="label_love">Love</string>
 
     <string name="work_kotlin_material_ui_headline">Kotlin Material-UI</string>
-    <string name="work_kotlin_material_ui_description">※公開終了\n\nReact向けUIフレームワーク「Material-UI」のKotlin/JS用ラッパーフレームワークです。\n\nMaterial-UIが提供する100種類以上のUIコンポーネント、およびテーマカスタマイズ用関数をKotlin/JS上で即座に利用することができました。</string>
+    <string name="work_kotlin_material_ui_description">※UNMAINTAINED\n\nThis is a wrapper framework for Kotlin/JS for Material-UI, a UI framework for React. \n\nMore than 100 types of UI components and functions for theme customization provided by Material-UI could be used instantly on Kotlin/JS.</string>
 
     <string name="work_droidkaigi_2019_headline">DroidKaigi 2019</string>
-    <string name="work_droidkaigi_2019_description">「Spek2+MockK+JaCoCoでイケてる Unit Test環境を手に入れろ！」というタイトルで、DroidKaigi 2019に登壇しました。</string>
+    <string name="work_droidkaigi_2019_description">I talked "Get a Cool Unit Test Environment with Spek2+MockK+JaCoCo!" at DroidKaigi 2019.</string>
 
     <string name="work_kotlinfest_2019_headline">Kotlin Fest 2019</string>
-    <string name="work_kotlinfest_2019_description">「フロントエンドもKotlinで書きたい！ -WebページをKotlin/JSで作った軌跡-」というタイトルで、Kotlin Fest 2019に登壇しました。</string>
+    <string name="work_kotlinfest_2019_description">I talked "I want to develop the frontend of a web application by Kotlin! -The trail of web pages made with Kotlin/JS-" at Kotlin Fest 2019.</string>
 
     <string name="work_kotlinfest_2022_headline">Kotlin Fest 2022</string>
-    <string name="work_kotlinfest_2022_description">「フロントエンドもJetpack Composeで書きたい！ -Compose for WebはモダンWebアプリケーションの夢を見るか？-」というタイトルで、Kotlin Fest 2022に登壇しました。</string>
+    <string name="work_kotlinfest_2022_description">I talked "I want to develop the frontend of a web application by Jetpack Compose! -Does Compose for Web dream of modern web applications?-" at Kotlin Fest 2022.</string>
 
     <string name="work_kotlinfest_2024_headline">Kotlin Fest 2024</string>
-    <string name="work_kotlinfest_2024_description">「あらゆるアプリをCompose Multiplatformで書きたい！ -ネイティブアプリの「あの機能」を私たちはどう作るか-」というタイトルで、Kotlin Fest 2024に登壇しました。</string>
+    <string name="work_kotlinfest_2024_description">I talked "I want to write every app in Compose Multiplatform! -How we create 'that feature' in native apps-" at Kotlin Fest 2024.</string>
 
     <string name="work_colormaster_headline">COLOR M@STER</string>
-    <string name="work_colormaster_description">アイドルマスターに登場するキャラクターのイメージカラーに対する、様々な機能を提供するアプリケーションです。現在、「検索」「ペンライト」の2つの機能が実装されています。\n\n実装にはKotlin Multiplatformを利用しています。</string>
+    <string name="work_colormaster_description">This application provides various functions for the image colors of characters in THE iDOLM@STER. Currently, two functions, "Search" and "Penlight", are implemented. \n\nThis Application is developed by Kotlin Multiplatform.</string>
 
     <string name="work_noctiluca_headline">Noctiluca</string>
-    <string name="work_noctiluca_description">※開発中\n\nマルチプラットフォーム対応のMastodonクライアントアプリです。</string>
+    <string name="work_noctiluca_description">※Under Development\n\nThis application is a multi-platform client of Mastodon.</string>
 </resources>

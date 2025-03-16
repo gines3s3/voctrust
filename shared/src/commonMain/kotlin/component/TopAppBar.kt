@@ -1,6 +1,6 @@
 package component
 
-import PortfolioTag
+import VOCTag
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.LightMode
@@ -29,7 +29,7 @@ internal fun TopAppBar(
     title = {
         Text(
             stringResource(Res.string.title),
-            modifier = Modifier.testTag(PortfolioTag.TOP_APP_BAR_TITLE),
+            modifier = Modifier.testTag(VOCTag.TOP_APP_BAR_TITLE),
         )
     },
     modifier = modifier,
@@ -49,7 +49,7 @@ internal fun TopAppBar(
             IconButton(
                 onClick = { config.switchTheme() },
                 modifier = Modifier.pointerHoverIcon(PointerIcon.Hand)
-                    .testTag(PortfolioTag.TOP_APP_BAR_COLOR_THEME_BUTTON),
+                    .testTag(VOCTag.TOP_APP_BAR_COLOR_THEME_BUTTON),
             ) {
                 Icon(
                     config.themeIcon(),
@@ -66,30 +66,6 @@ private fun AppConfigState.switchTheme() {
     theme = when (theme) {
         ColorTheme.AndroidLight -> ColorTheme.AndroidDark
         ColorTheme.AndroidDark -> ColorTheme.AndroidLight
-        ColorTheme.HarukiLight -> ColorTheme.HarukiDark
-        ColorTheme.HarukiDark -> ColorTheme.HarukiLight
-        ColorTheme.KanadeLight -> ColorTheme.KanadeDark
-        ColorTheme.KanadeDark -> ColorTheme.KanadeLight
-        ColorTheme.KotlinLight -> ColorTheme.KotlinDark
-        ColorTheme.KotlinDark -> ColorTheme.KotlinLight
-        ColorTheme.MadokaLight -> ColorTheme.MadokaDark
-        ColorTheme.MadokaDark -> ColorTheme.MadokaLight
-        ColorTheme.MizukiLight -> ColorTheme.MizukiDark
-        ColorTheme.MizukiDark -> ColorTheme.MizukiLight
-        ColorTheme.RailsLight -> ColorTheme.RailsDark
-        ColorTheme.RailsDark -> ColorTheme.RailsLight
-        ColorTheme.ReactLight -> ColorTheme.ReactDark
-        ColorTheme.ReactDark -> ColorTheme.ReactLight
-        ColorTheme.SayakaLight -> ColorTheme.SayakaDark
-        ColorTheme.SayakaDark -> ColorTheme.SayakaLight
-        ColorTheme.TemariLight -> ColorTheme.TemariDark
-        ColorTheme.TemariDark -> ColorTheme.TemariLight
-        ColorTheme.YouLight -> ColorTheme.YouDark
-        ColorTheme.YouDark -> ColorTheme.YouLight
-        ColorTheme.YuLight -> ColorTheme.YuDark
-        ColorTheme.YuDark -> ColorTheme.YuLight
-        ColorTheme.YuikaLight -> ColorTheme.YuikaDark
-        ColorTheme.YuikaDark -> ColorTheme.YuikaLight
     }
 }
 

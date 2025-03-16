@@ -1,6 +1,6 @@
 package component
 
-import PortfolioTag
+import VOCTag
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -83,7 +83,7 @@ internal fun WorkCard(
         Text(
             text = description,
             style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.testTag(PortfolioTag.WORK_CARD_DESCRIPTION),
+            modifier = Modifier.testTag(VOCTag.WORK_CARD_DESCRIPTION),
         )
 
         Spacer(Modifier.height(16.dp))
@@ -138,7 +138,7 @@ private fun WorkCardThumbnail(
         label = { Text(type) },
         modifier = Modifier.align(Alignment.BottomEnd)
             .offset(x = (-8).dp, y = (-4).dp)
-            .testTag(PortfolioTag.WORK_CARD_TAG),
+            .testTag(VOCTag.WORK_CARD_TAG),
     )
 }
 
@@ -150,7 +150,7 @@ private fun WorkHeadline(
     Text(
         text = headline,
         style = MaterialTheme.typography.titleLarge,
-        modifier = Modifier.testTag(PortfolioTag.WORK_CARD_HEADLINE),
+        modifier = Modifier.testTag(VOCTag.WORK_CARD_HEADLINE),
     )
 
     Spacer(Modifier.height(4.dp))
@@ -159,6 +159,6 @@ private fun WorkHeadline(
         text = time.toString(),
         color = MaterialTheme.colorScheme.outline,
         style = MaterialTheme.typography.bodyMedium,
-        modifier = Modifier.testTag(PortfolioTag.WORK_CARD_TIME),
+        modifier = Modifier.testTag(VOCTag.WORK_CARD_TIME),
     )
 }

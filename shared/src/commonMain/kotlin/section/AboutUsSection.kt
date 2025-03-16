@@ -6,26 +6,26 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import component.AnimatedSection
 import component.Footer
+import config.AppConfigState
 import org.jetbrains.compose.resources.stringResource
 import voctrust.shared.generated.resources.Res
-import voctrust.shared.generated.resources.biography
+import voctrust.shared.generated.resources.about_us_values_vision
+import voctrust.shared.generated.resources.home_welcome_text
 
 @Composable
-internal fun BiographySection(
+internal fun AboutUsSection(
     visible: Boolean,
 ) = AnimatedSection(
     visible,
     modifier = Modifier.fillMaxHeight()
         .padding(32.dp),
-    horizontalAlignment = Alignment.CenterHorizontally,
 ) {
     Text(
-        stringResource(Res.string.biography),
+        stringResource(Res.string.about_us_values_vision),
         style = MaterialTheme.typography.bodyLarge,
     )
 

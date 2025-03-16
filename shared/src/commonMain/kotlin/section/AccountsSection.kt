@@ -6,10 +6,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import component.accountchip.*
-import component.accountchip.Facebook
-import component.accountchip.GitHub
-import component.accountchip.Lapras
-import component.accountchip.X
+import component.accountchip.Instagram
 import config.MediumWidth
 import config.MinWidth
 import config.SmallWidth
@@ -20,16 +17,7 @@ internal fun AccountsSection() = Column(
     horizontalAlignment = Alignment.CenterHorizontally,
 ) {
     ResponsiveRow(
-        { X() },
-        { Mixi2() },
-        { Facebook() },
-    )
-
-    ResponsiveRow(
-        { GitHub() },
-        { Lapras() },
-        { Wantedly() },
-        { Youtrust() },
+        { Instagram() },
     )
 
     Spacer(Modifier.size(24.dp))

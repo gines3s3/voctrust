@@ -9,18 +9,20 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
-import component.*
 import component.AppScaffold
 import component.ContentTab
+import component.ImageCarousel
 import component.TabLayout
 import component.TopAppBar
-import config.*
+import component.handleTabChange
+import config.AppConfigState
+import config.LocalAppConfigState
+import config.rememberAppConfigState
 import org.jetbrains.compose.resources.stringResource
 import section.AccountsSection
-import section.BiographySection
-import section.HandleNameSection
-import section.MyFavoritesSection
-import section.WorksSection
+import section.HomeSection
+import section.AboutUsSection
+import section.GetInvolvedSection
 import theme.rememberTypography
 
 @Composable
@@ -45,34 +47,36 @@ fun PortfolioApp(
                     )
                 },
             ) {
-                item { HandleNameSection() }
+                item { ImageCarousel() }
                 item { AccountsSection() }
-                item { PortfolioContent(current, config) }
+                item { VOCContent(current, config) }
             }
         }
     }
 }
 
 @Composable
-private fun PortfolioContent(
+private fun VOCContent(
     current: ContentTab,
-    appConfigState: AppConfigState,
-) = TabLayout(
-    current,
-    tabs = { currentTab ->
-        ContentTab.entries.forEach {
-            Tab(
-                currentTab.value == it,
-                text = { Text(stringResource(it.label)) },
-                icon = { Icon(it.icon, contentDescription = null) },
-                onClick = { currentTab.handleTabChange(it) },
-                modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
-            )
-        }
-    },
-    content = { tab ->
-        BiographySection(tab == ContentTab.Biography)
-        MyFavoritesSection(tab == ContentTab.MyFavorites, appConfigState)
-        WorksSection(tab == ContentTab.Works)
-    },
-)
+    appConfigState: AppConfigState
+) {
+    TabLayout(
+        current,
+        tabs = { currentTab ->
+            ContentTab.entries.forEach {
+                Tab(
+                    currentTab.value == it,
+                    text = { Text(stringResource(it.label)) },
+                    icon = { Icon(it.icon, contentDescription = null) },
+                    onClick = { currentTab.handleTabChange(it) },
+                    modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
+                )
+            }
+        },
+        content = { tab ->
+            HomeSection(tab == ContentTab.HOME)
+            AboutUsSection(tab == ContentTab.ABOUT_US)
+            GetInvolvedSection(tab == ContentTab.SERVICES)
+        },
+    )
+}

@@ -26,7 +26,7 @@ internal fun CardGrid(
         for (i in 0..<chunkedSize) {
             Column(
                 modifier = Modifier.weight(1F)
-                    .testTag(PortfolioTag.CARD_GRID_COLUMN),
+                    .testTag(VOCTag.CARD_GRID_COLUMN),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 chunkedWorks.forEach work@{ row ->

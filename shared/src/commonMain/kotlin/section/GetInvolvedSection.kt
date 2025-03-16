@@ -12,7 +12,7 @@ import component.WorkCardMinWidth
 import component.work.Works
 
 @Composable
-internal fun WorksSection(
+internal fun GetInvolvedSection(
     visible: Boolean,
 ) = AnimatedSection(
     visible,

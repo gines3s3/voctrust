@@ -1,6 +1,6 @@
 package component
 
-import PortfolioTag
+import VOCTag
 import androidx.compose.material3.Text
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -31,21 +31,21 @@ class TopAppBarTest {
                 TopAppBar(title = {
                     Text(
                         TITLE,
-                        modifier = Modifier.testTag(PortfolioTag.TOP_APP_BAR_TITLE),
+                        modifier = Modifier.testTag(VOCTag.TOP_APP_BAR_TITLE),
                     )
                 })
             }
         }
 
-        onNodeWithTag(PortfolioTag.TOP_APP_BAR_TITLE)
+        onNodeWithTag(VOCTag.TOP_APP_BAR_TITLE)
             .assertTextEquals(TITLE)
 
-        onNodeWithTag(PortfolioTag.TOP_APP_BAR_COLOR_THEME_BUTTON)
+        onNodeWithTag(VOCTag.TOP_APP_BAR_COLOR_THEME_BUTTON)
             .performClick()
 
         assertEquals(ColorTheme.KotlinDark, appConfigState.theme)
 
-        onNodeWithTag(PortfolioTag.TOP_APP_BAR_COLOR_THEME_BUTTON)
+        onNodeWithTag(VOCTag.TOP_APP_BAR_COLOR_THEME_BUTTON)
             .performClick()
 
         assertEquals(ColorTheme.KotlinLight, appConfigState.theme)
