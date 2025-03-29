@@ -8,9 +8,9 @@ fun main() {
     onWasmReady {
         CanvasBasedWindow(
             "VOC Youth Social Welfare Trust",
-            canvasElementId = "PortfolioCanvas",
+            canvasElementId = "VOCCanvas",
         ) {
-            PortfolioApp(
+            VOCApp(
                 current = buildContentPath(),
             )
         }

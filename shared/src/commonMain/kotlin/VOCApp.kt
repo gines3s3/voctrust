@@ -26,7 +26,7 @@ import section.GetInvolvedSection
 import theme.rememberTypography
 
 @Composable
-fun PortfolioApp(
+fun VOCApp(
     current: ContentTab,
     useDarkTheme: Boolean = isSystemInDarkTheme(),
 ) {
