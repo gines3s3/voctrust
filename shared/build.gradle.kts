@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.buildconfig)
+    kotlin("plugin.serialization") version "2.1.10"
 }
 
 kotlin {
@@ -32,6 +33,22 @@ kotlin {
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
                 implementation(compose.components.resources)
+
+                // Ktor
+                implementation("io.ktor:ktor-client-core:3.1.0")
+                implementation("io.ktor:ktor-client-cio:3.1.0")
+                implementation("io.ktor:ktor-client-content-negotiation:3.1.0")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:3.1.0")
+
+                // Coil (Image Loading)
+                implementation("io.coil-kt.coil3:coil-compose:3.1.0")
+                implementation("io.coil-kt.coil3:coil-network-ktor3:3.1.0")
+
+                // Cloudinary URL generator
+                implementation("com.cloudinary:kotlin-url-gen:1.7.0")
+
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0") // Ensure this line is present
+
             }
         }
 

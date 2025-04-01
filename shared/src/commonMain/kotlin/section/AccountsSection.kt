@@ -12,18 +12,6 @@ import config.MinWidth
 import config.SmallWidth
 
 @Composable
-internal fun AccountsSection() = Column(
-    modifier = Modifier.fillMaxWidth(),
-    horizontalAlignment = Alignment.CenterHorizontally,
-) {
-    ResponsiveRow(
-        { Instagram() },
-    )
-
-    Spacer(Modifier.size(24.dp))
-}
-
-@Composable
 private fun ResponsiveRow(
     vararg chip: @Composable RowScope.() -> Unit,
 ) = ResponsiveRow(chip.toList())

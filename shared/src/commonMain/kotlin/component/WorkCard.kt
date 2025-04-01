@@ -1,4 +1,4 @@
-package component
+ package component
 
 import VOCTag
 import androidx.compose.foundation.Image

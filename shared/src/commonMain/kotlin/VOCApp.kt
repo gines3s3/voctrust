@@ -15,13 +15,12 @@ import component.ImageCarousel
 import component.TabLayout
 import component.TopAppBar
 import component.handleTabChange
-import config.AppConfigState
 import config.LocalAppConfigState
 import config.rememberAppConfigState
 import org.jetbrains.compose.resources.stringResource
-import section.AccountsSection
 import section.HomeSection
 import section.AboutUsSection
+import section.GallerySection
 import section.GetInvolvedSection
 import theme.rememberTypography
 
@@ -48,18 +47,14 @@ fun VOCApp(
                 },
             ) {
                 item { ImageCarousel() }
-                item { AccountsSection() }
-                item { VOCContent(current, config) }
+                item { VOCContent(current) }
             }
         }
     }
 }
 
 @Composable
-private fun VOCContent(
-    current: ContentTab,
-    appConfigState: AppConfigState
-) {
+private fun VOCContent(current: ContentTab) {
     TabLayout(
         current,
         tabs = { currentTab ->
@@ -77,6 +72,7 @@ private fun VOCContent(
             HomeSection(tab == ContentTab.HOME)
             AboutUsSection(tab == ContentTab.ABOUT_US)
             GetInvolvedSection(tab == ContentTab.SERVICES)
+            GallerySection(tab == ContentTab.GALLERY)
         },
     )
 }

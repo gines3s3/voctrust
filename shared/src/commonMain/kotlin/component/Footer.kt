@@ -25,7 +25,7 @@ internal fun ColumnScope.Footer() = Footer(
     modifier = Modifier.align(Alignment.CenterHorizontally),
 )
 
-private const val RepositoryHref = "https://github.com/subroh0508/portfolio"
+private const val RepositoryHref = "https://github.com/gines3s3/voctrust"
 
 @Composable
 private fun Footer(
