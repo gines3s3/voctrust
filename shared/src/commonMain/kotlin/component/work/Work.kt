@@ -5,7 +5,6 @@ import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
 import voctrust.shared.generated.resources.Res
 import voctrust.shared.generated.resources.logo_voc
-import voctrust.shared.generated.resources.personal_project
 import voctrust.shared.generated.resources.work_kotlin_material_ui_description
 import voctrust.shared.generated.resources.work_kotlin_material_ui_headline
 
@@ -19,7 +18,7 @@ internal data class Work(
 )
 
 internal enum class WorkType(val label: StringResource) {
-    PersonalProject(Res.string.personal_project),
+    //PersonalProject(Res.string.personal_project),
 }
 
 internal data class Link(
@@ -43,7 +42,7 @@ internal sealed class Time {
 
 
 
-internal val KotlinMaterialUi = Work(
+/*internal val KotlinMaterialUi = Work(
     Res.string.work_kotlin_material_ui_headline,
     Res.string.work_kotlin_material_ui_description,
     WorkType.PersonalProject,
@@ -54,4 +53,4 @@ internal val KotlinMaterialUi = Work(
 
 internal val Works = listOf(
     KotlinMaterialUi,
-)
+)*/

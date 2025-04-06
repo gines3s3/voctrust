@@ -1,6 +1,8 @@
 package component
 
 import VOCTag
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.LightMode
@@ -14,11 +16,15 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.platform.testTag
-import component.accountchip.Instagram
+import androidx.compose.ui.unit.dp
+import component.accountchip.AccountLink
 import config.AppConfigState
 import config.ColorTheme
 import config.LocalAppConfigState
 import config.isLight
+import model.LinkType
+import model.Member
+import model.Members
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import voctrust.shared.generated.resources.Res
@@ -64,7 +70,18 @@ internal fun TopAppBar(
         },
         actions = {
 
-            Instagram()
+            Members.memberDeva.links.firstOrNull { it.linkType == LinkType.Phone }
+                ?.let { memberLink ->
+                    AccountLink(memberLink)
+                }
+
+            Spacer(Modifier.width(16.dp))
+
+            Members.memberDeva.links.firstOrNull { it.linkType == LinkType.Instagram }
+                ?.let { memberLink ->
+                    AccountLink(memberLink)
+                }
+
 
             IconButton(
                 onClick = { config.switchTheme() },
@@ -90,4 +107,5 @@ private fun AppConfigState.switchTheme() {
 }
 
 @Composable
-private fun AppConfigState.themeIcon() = if (theme.schema.isLight()) Icons.Default.DarkMode else Icons.Default.LightMode
+private fun AppConfigState.themeIcon() =
+    if (theme.schema.isLight()) Icons.Default.DarkMode else Icons.Default.LightMode
