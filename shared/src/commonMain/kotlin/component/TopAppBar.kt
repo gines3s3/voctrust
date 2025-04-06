@@ -74,13 +74,12 @@ internal fun TopAppBar(
                     AccountLink(memberLink)
                 }
 
-            Spacer(Modifier.width(16.dp))
+            Spacer(Modifier.width(8.dp))
 
             Members.memberDeva.links.firstOrNull { it.linkType == LinkType.Instagram }
                 ?.let { memberLink ->
                     AccountLink(memberLink)
                 }
-
 
             IconButton(
                 onClick = { config.switchTheme() },

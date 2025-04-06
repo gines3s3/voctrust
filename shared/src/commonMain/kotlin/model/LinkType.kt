@@ -1,10 +1,12 @@
 package model
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import org.jetbrains.compose.resources.imageResource
 import voctrust.shared.generated.resources.Res
@@ -18,7 +20,8 @@ sealed class LinkType {
             Icon(
                 bitmap = imageResource(Res.drawable.instagram),
                 contentDescription = "Instagram",
-                tint = Color.Unspecified
+                tint = Color.Unspecified,
+                modifier = Modifier.fillMaxSize()
             )
         }
     }
@@ -27,7 +30,9 @@ sealed class LinkType {
         override fun getIconContent(): @Composable () -> Unit = {
             Icon(
                 imageVector = Icons.Default.Phone,
-                contentDescription = "Phone"
+                contentDescription = "Phone",
+                modifier = Modifier.fillMaxSize()
+
             )
         }
     }
@@ -36,7 +41,8 @@ sealed class LinkType {
         override fun getIconContent(): @Composable () -> Unit = {
             Icon(
                 imageVector = Icons.Default.Email,
-                contentDescription = "Email"
+                contentDescription = "Email",
+                modifier = Modifier.fillMaxSize()
             )
         }
     }

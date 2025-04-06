@@ -13,7 +13,7 @@ object Members {
             ),
             Member.Link(
                 href = "tel:+9194873806440",
-                label = "Call Deva",
+                label = "Call Us",
                 linkType = LinkType.Phone
             ),
         )
@@ -25,7 +25,7 @@ object Members {
         links = listOf(
             Member.Link(
                 href = "tel:+918124003900",
-                label = "Call Ganesh S",
+                label = "Call Us",
                 linkType = LinkType.Phone
             ),
         )
@@ -37,7 +37,7 @@ object Members {
         links = listOf(
             Member.Link(
                 href = "tel:+919442718319",
-                label = "Call Murugan S",
+                label = "Call Us",
                 linkType = LinkType.Phone
             ),
         )
