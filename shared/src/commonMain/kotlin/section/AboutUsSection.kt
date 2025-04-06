@@ -10,11 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import component.AnimatedSection
 import component.Footer
-import config.AppConfigState
 import org.jetbrains.compose.resources.stringResource
 import voctrust.shared.generated.resources.Res
 import voctrust.shared.generated.resources.about_us_values_vision
-import voctrust.shared.generated.resources.home_welcome_text
 
 @Composable
 internal fun AboutUsSection(

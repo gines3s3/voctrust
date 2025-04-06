@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.FontResource
-import voctrust.shared.generated.resources.*
+import voctrust.shared.generated.resources.MPLUS1p_Regular
 import voctrust.shared.generated.resources.Res
 
 private val fontSets: List<Triple<FontResource, FontWeight, FontStyle>> = listOf(

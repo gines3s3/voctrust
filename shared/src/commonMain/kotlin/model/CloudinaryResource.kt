@@ -18,5 +18,7 @@ data class CloudinaryResource(
     @SerialName("asset_folder") val assetFolder: String,
     @SerialName("display_name") val displayName: String,
     val url: String,
-    @SerialName("secure_url") val secureUrl: String
+    @SerialName("secure_url") val secureUrl: String,
+    @SerialName("thumbnail_url") val thumbnailUrl: String? = null,
+    @SerialName("preview_url") val previewUrl: String? = null
 )

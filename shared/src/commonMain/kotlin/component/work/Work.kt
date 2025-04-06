@@ -1,14 +1,13 @@
 package component.work
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.OpenInNew
-import androidx.compose.material.icons.filled.Code
-import androidx.compose.material.icons.filled.Description
-import androidx.compose.material.icons.filled.Movie
 import androidx.compose.ui.graphics.vector.ImageVector
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
-import voctrust.shared.generated.resources.*
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.logo_voc
+import voctrust.shared.generated.resources.personal_project
+import voctrust.shared.generated.resources.work_kotlin_material_ui_description
+import voctrust.shared.generated.resources.work_kotlin_material_ui_headline
 
 internal data class Work(
     val headline: StringResource,

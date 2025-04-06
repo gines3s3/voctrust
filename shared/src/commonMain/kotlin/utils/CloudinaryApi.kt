@@ -1,42 +1,39 @@
-package utils
+    package utils
 
-import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.request.get
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.decodeFromJsonElement
-import kotlinx.serialization.json.jsonArray
-import kotlinx.serialization.json.jsonObject
-import model.CloudinaryResource
+    import io.ktor.client.HttpClient
+    import io.ktor.client.call.body
+    import io.ktor.client.request.get
+    import kotlinx.serialization.json.Json
+    import model.ResourceResponse
 
-object CloudinaryApi {
+    object CloudinaryApi {
 
-    private fun getBaseUrl(workerName: String) = "https://$workerName.gines-thilla.workers.dev"
 
-    private val httpClient = HttpClient()
+        private val httpClient = HttpClient()
 
-    suspend fun fetchMedia(mediaType: MediaType): List<CloudinaryResource> {
-        return try {
-            val responseText = httpClient.get(getBaseUrl(mediaType.workerName)).body<String>()
-            val jsonResponse = Json.parseToJsonElement(responseText).jsonObject
-            val resources = jsonResponse["resources"]?.jsonArray ?: return emptyList()
-            resources.mapNotNull {
+        suspend fun fetchMedia(mediaType: MediaType, nextCursor: String? = null): ResourceResponse {
+            var resourceResponse = ResourceResponse(emptyList(), null)
+            return try {
+                val baseUrl = getBaseUrl(mediaType.workerName)
+                val url = if (nextCursor != null) "$baseUrl?next_cursor=$nextCursor" else baseUrl
+                val responseText = httpClient.get(url).body<String>()
                 try {
-                    Json.decodeFromJsonElement<CloudinaryResource>(it)
+                    resourceResponse = Json.decodeFromString<ResourceResponse>(responseText)
                 } catch (e: Exception) {
-                    println("1" + e.message)
-                    null
+                    println("1 " + e.message)
                 }
+                resourceResponse
+            } catch (e: Exception) {
+                println("2 " + e.message)
+                resourceResponse
             }
-        } catch (e: Exception) {
-            println("2" + e.message)
-            emptyList()
+        }
+
+        private fun getBaseUrl(workerName: String) = "https://$workerName.gines-thilla.workers.dev"
+
+        enum class MediaType(val workerName: String) {
+            CAROUSEL("voc-carousel"),
+            GALLERY("voc-gallery")
+            // VIDEO
         }
     }
-
-    enum class MediaType(val workerName: String) {
-        CAROUSEL("voc-carousel"),
-        GALLERY("voc-gallery")
-        // VIDEO
-    }
-}

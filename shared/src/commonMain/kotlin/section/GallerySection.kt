@@ -1,21 +1,20 @@
 package section
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
@@ -23,6 +22,8 @@ import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import component.AnimatedSection
 import component.Footer
+import kotlinx.coroutines.launch
+import model.CloudinaryResource
 import utils.CloudinaryApi
 import utils.ImageLoaderProvider
 
@@ -33,59 +34,84 @@ internal fun GallerySection(
     visible,
     modifier = Modifier.padding(32.dp),
 ) {
+    var resourceList by remember { mutableStateOf<List<CloudinaryResource>>(emptyList()) }
+    var nextCursor by remember { mutableStateOf<String?>(null) }
+    var isLoading by remember { mutableStateOf(false) }
 
-    var mediaUrls by remember { mutableStateOf<List<GalleryImage>>(emptyList()) }
-
-        GalleryScreen(mediaUrls)
+    GalleryScreen(
+        cloudinaryResourceList = resourceList,
+        onLoadMore = {
+            if (nextCursor != null && !isLoading) {
+                isLoading = true
+                kotlinx.coroutines.MainScope().launch {
+                    val response =
+                        CloudinaryApi.fetchMedia(CloudinaryApi.MediaType.GALLERY, nextCursor)
+                    resourceList = resourceList + response.resources
+                    nextCursor = response.nextCursor
+                    isLoading = false
+                }
+            }
+        }
+    )
 
     LaunchedEffect(Unit) {
-        mediaUrls = CloudinaryApi.fetchMedia(CloudinaryApi.MediaType.GALLERY).map {
-            GalleryImage(
-                id = it.assetId,
-                width = it.width,
-                height = it.height,
-                resource = it.secureUrl
-            )
-        }
+        isLoading = true
+        val response = CloudinaryApi.fetchMedia(CloudinaryApi.MediaType.GALLERY)
+        resourceList = response.resources
+        nextCursor = response.nextCursor
+        isLoading = false
     }
 
     Footer()
 }
 
-
-// Sample data class for images
-data class GalleryImage(val id: String, val width: Int, val height: Int, val resource: String)
-
 @Composable
-fun GalleryScreen(images: List<GalleryImage>) {
-    val sortedImages =
-        images.sortedWith(compareBy({ it.height / it.width.toFloat() }, { it.width }))
+fun GalleryScreen(
+    cloudinaryResourceList: List<CloudinaryResource>,
+    onLoadMore: () -> Unit
+) {
+    val listState = rememberLazyGridState()
 
-    LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 100.dp), modifier = Modifier
-        .fillMaxWidth()
-        .heightIn(max = 600.dp)) {
-        items(sortedImages) { image ->
-            GalleryImageItem(image)
+    LaunchedEffect(cloudinaryResourceList.size) {
+        snapshotFlow { listState.layoutInfo.visibleItemsInfo }
+            .collect { visibleItems ->
+                val lastVisibleItem = visibleItems.lastOrNull()
+                if (lastVisibleItem != null) {
+                    val lastIndex = lastVisibleItem.index
+                    val total = cloudinaryResourceList.size
+                    if (lastIndex >= total - 5) {
+                        onLoadMore()
+                    }
+                }
+            }
+    }
+
+    LazyVerticalGrid(
+        columns = GridCells.Adaptive(minSize = 310.dp),
+        state = listState,
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(max = 600.dp)
+    ) {
+        items(cloudinaryResourceList) { cloudinaryResource ->
+            GalleryImageItem(cloudinaryResource)
         }
     }
 }
 
 @Composable
-fun GalleryImageItem(image: GalleryImage) {
-    val aspectRatio = image.width.toFloat() / image.height.toFloat()
-
-    //Box(modifier = Modifier.padding(4.dp)) {
-        AsyncImage(
-            imageLoader = ImageLoaderProvider.getImageLoader(LocalPlatformContext.current),
-            model = image.resource,
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            onError = { error ->
-                println(error)
-            },
-            modifier = Modifier
-                .aspectRatio(aspectRatio)
-                .fillMaxWidth()
-        )
-    //}
+fun GalleryImageItem(cloudinaryResource: CloudinaryResource) {
+    AsyncImage(
+        imageLoader = ImageLoaderProvider.getImageLoader(LocalPlatformContext.current),
+        model = cloudinaryResource.thumbnailUrl ?: cloudinaryResource.previewUrl
+        ?: cloudinaryResource.secureUrl,
+        contentDescription = null,
+        contentScale = ContentScale.Crop,
+        onError = { error ->
+            println(error)
+        },
+        modifier = Modifier
+            .size(310.dp)
+            .padding(5.dp)// Fixed size for all thumbnails
+    )
 }

@@ -16,9 +16,11 @@ import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.stringResource
-import voctrust.shared.LAST_MODIFIED_DATE_TIME
-import voctrust.shared.generated.resources.*
 import utils.openWindow
+import voctrust.shared.LAST_MODIFIED_DATE_TIME
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.last_modified
+import voctrust.shared.generated.resources.sourcecode
 
 @Composable
 internal fun ColumnScope.Footer() = Footer(

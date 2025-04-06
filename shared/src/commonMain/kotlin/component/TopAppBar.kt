@@ -1,8 +1,6 @@
 package component
 
 import VOCTag
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.LightMode
@@ -16,7 +14,6 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.unit.dp
 import component.accountchip.Instagram
 import config.AppConfigState
 import config.ColorTheme
@@ -25,7 +22,6 @@ import config.isLight
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import voctrust.shared.generated.resources.Res
-import voctrust.shared.generated.resources.instagram
 import voctrust.shared.generated.resources.logo_voc
 import voctrust.shared.generated.resources.title
 import androidx.compose.material3.TopAppBar as M3TopAppBar

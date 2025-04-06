@@ -3,7 +3,7 @@ import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
 
 plugins {
     alias(libs.plugins.kotlin.mpp)

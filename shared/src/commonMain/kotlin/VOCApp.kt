@@ -18,10 +18,10 @@ import component.handleTabChange
 import config.LocalAppConfigState
 import config.rememberAppConfigState
 import org.jetbrains.compose.resources.stringResource
-import section.HomeSection
 import section.AboutUsSection
 import section.GallerySection
 import section.GetInvolvedSection
+import section.HomeSection
 import theme.rememberTypography
 
 @Composable

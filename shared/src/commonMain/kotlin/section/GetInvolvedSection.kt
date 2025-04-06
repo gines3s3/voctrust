@@ -1,12 +1,12 @@
 package section
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import component.*
 import component.AnimatedSection
 import component.CardGrid
+import component.Footer
 import component.WorkCard
 import component.WorkCardMinWidth
 import component.work.Works
