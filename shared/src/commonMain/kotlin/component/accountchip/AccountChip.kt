@@ -1,7 +1,6 @@
 package component.accountchip
 
 import VOCTag
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.size
@@ -22,7 +21,6 @@ import androidx.compose.ui.unit.dp
 import config.SmallWidth
 import config.isLight
 import model.Member
-import org.jetbrains.compose.resources.imageResource
 import utils.openWindow
 
 private val smallIconSize = 22.dp

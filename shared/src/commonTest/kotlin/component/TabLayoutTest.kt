@@ -38,12 +38,13 @@ class TabLayoutTest {
                         )
                     }
                 },
-            ) {
-                Text(
-                    it.name,
-                    modifier = Modifier.testTag(CONTENT_TAG),
-                )
-            }
+                {
+                    Text(
+                        it.name,
+                        modifier = Modifier.testTag(CONTENT_TAG),
+                    )
+                },
+            )
         }
 
         assertContentTab(tabState, ContentTab.ABOUT_US)

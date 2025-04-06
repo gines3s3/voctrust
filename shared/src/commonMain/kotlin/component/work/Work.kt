@@ -3,10 +3,6 @@ package component.work
 import androidx.compose.ui.graphics.vector.ImageVector
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
-import voctrust.shared.generated.resources.Res
-import voctrust.shared.generated.resources.logo_voc
-import voctrust.shared.generated.resources.work_kotlin_material_ui_description
-import voctrust.shared.generated.resources.work_kotlin_material_ui_headline
 
 internal data class Work(
     val headline: StringResource,

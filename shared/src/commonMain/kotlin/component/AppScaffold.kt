@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -23,7 +22,8 @@ import config.MinWidth
 @Composable
 internal fun AppScaffold(
     header: @Composable (Dp) -> Unit = {},
-    content: LazyListScope.() -> Unit,
+    scrollState: LazyListState,
+    content: LazyListScope.() -> Unit
 ) = Surface(Modifier.fillMaxSize()) {
     BoxWithConstraints {
         val width = when {
@@ -36,6 +36,7 @@ internal fun AppScaffold(
             width,
             header = header,
             content = content,
+            scrollState = scrollState
         )
     }
 }
@@ -43,9 +44,9 @@ internal fun AppScaffold(
 @Composable
 private fun LazyColumnScaffold(
     width: Dp,
-    state: LazyListState = rememberLazyListState(),
     header: @Composable (Dp) -> Unit = {},
     content: LazyListScope.() -> Unit,
+    scrollState: LazyListState,
 ) = Scaffold(
     topBar = {
         Box(
@@ -60,11 +61,11 @@ private fun LazyColumnScaffold(
         contentAlignment = Alignment.TopCenter,
     ) {
         LazyColumn(
-            state = state,
             modifier = Modifier.fillMaxHeight()
                 .width(width)
                 .padding(paddingValues),
             content = content,
+            state = scrollState
         )
     }
 }

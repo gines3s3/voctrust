@@ -23,7 +23,6 @@ import config.ColorTheme
 import config.LocalAppConfigState
 import config.isLight
 import model.LinkType
-import model.Member
 import model.Members
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
