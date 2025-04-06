@@ -20,7 +20,7 @@ class AccountLinkTest {
 
         setContent {
             AccountLink(
-                icon = { ServiceIcon(imageResource(Res.drawable.lapras)) },
+                icon = { ServiceIcon(imageResource(Res.drawable.lapras), largeIconSize) },
                 SITE_NAME,
                 URL,
             )
