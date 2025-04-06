@@ -1,5 +1,6 @@
 package section
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -22,6 +23,7 @@ import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import component.AnimatedSection
 import component.Footer
+import component.ImageViewerDialog
 import kotlinx.coroutines.launch
 import model.CloudinaryResource
 import utils.CloudinaryApi
@@ -71,6 +73,17 @@ fun GalleryScreen(
     onLoadMore: () -> Unit
 ) {
     val listState = rememberLazyGridState()
+    var selectedImageIndex by remember { mutableStateOf<Int?>(null) }
+
+    // Dialog state handling
+    if (selectedImageIndex != null) {
+        val imageUrls = cloudinaryResourceList.map { it.secureUrl }
+        ImageViewerDialog(
+            imageUrls = imageUrls,
+            initialIndex = selectedImageIndex!!,
+            onDismiss = { selectedImageIndex = null }
+        )
+    }
 
     LaunchedEffect(cloudinaryResourceList.size) {
         snapshotFlow { listState.layoutInfo.visibleItemsInfo }
@@ -93,14 +106,18 @@ fun GalleryScreen(
             .fillMaxWidth()
             .heightIn(max = 600.dp)
     ) {
-        items(cloudinaryResourceList) { cloudinaryResource ->
-            GalleryImageItem(cloudinaryResource)
+        items(cloudinaryResourceList.withIndex().toList()) { (index, resource) ->
+            GalleryImageItem(
+                cloudinaryResource = resource,
+                onClick = { selectedImageIndex = index }
+            )
         }
     }
 }
 
 @Composable
-fun GalleryImageItem(cloudinaryResource: CloudinaryResource) {
+fun GalleryImageItem(cloudinaryResource: CloudinaryResource,
+                     onClick: () -> Unit) {
     AsyncImage(
         imageLoader = ImageLoaderProvider.getImageLoader(LocalPlatformContext.current),
         model = cloudinaryResource.thumbnailUrl ?: cloudinaryResource.previewUrl
@@ -113,5 +130,6 @@ fun GalleryImageItem(cloudinaryResource: CloudinaryResource) {
         modifier = Modifier
             .size(310.dp)
             .padding(5.dp)// Fixed size for all thumbnails
+            .clickable(onClick = onClick)
     )
 }
