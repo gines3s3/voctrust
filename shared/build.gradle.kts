@@ -44,11 +44,6 @@ kotlin {
                 implementation("io.coil-kt.coil3:coil-compose:3.1.0")
                 implementation("io.coil-kt.coil3:coil-network-ktor3:3.1.0")
 
-                // Cloudinary URL generator
-                implementation("com.cloudinary:kotlin-url-gen:1.7.0")
-
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0") // Ensure this line is present
-
             }
         }
 
