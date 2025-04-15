@@ -3,6 +3,7 @@ package model
 data class Member(
     var name: String,
     var title: String,
+    var location: String,
     var description: String = "",
     var imageUrl: String = "",
     var links: List<Link> = listOf(),

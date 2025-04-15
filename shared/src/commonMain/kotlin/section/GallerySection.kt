@@ -26,8 +26,11 @@ import component.Footer
 import component.ImageViewerDialog
 import kotlinx.coroutines.launch
 import model.CloudinaryResource
+import org.jetbrains.compose.resources.painterResource
 import utils.CloudinaryApi
 import utils.ImageLoaderProvider
+import voctrust.shared.generated.resources.Res
+import voctrust.shared.generated.resources.logo_voc
 
 @Composable
 internal fun GallerySection(
@@ -130,6 +133,7 @@ fun GalleryImageItem(cloudinaryResource: CloudinaryResource,
         modifier = Modifier
             .size(310.dp)
             .padding(5.dp)// Fixed size for all thumbnails
-            .clickable(onClick = onClick)
+            .clickable(onClick = onClick),
+        placeholder = painterResource(Res.drawable.logo_voc)
     )
 }

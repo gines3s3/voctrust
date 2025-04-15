@@ -39,9 +39,9 @@ enum class ContentTab(
 ) {
 
     HOME(Res.string.tab_home, Icons.Default.Home, ""),
-    ABOUT_US(Res.string.tab_about_us, Icons.Default.AccountBox, "about-us"),
     SERVICES(Res.string.tab_services, Icons.Default.DesignServices, "services"),
     GALLERY(Res.string.tab_gallery, Icons.Default.PhotoAlbum, "gallery"),
+    ABOUT_US(Res.string.tab_about_us, Icons.Default.AccountBox, "about-us"),
     CONTACT_US(Res.string.tab_contact_us, Icons.Default.ContactPhone, "contact-us"),
 }
 

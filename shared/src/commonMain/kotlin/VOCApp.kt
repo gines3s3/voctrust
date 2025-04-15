@@ -22,9 +22,10 @@ import config.rememberAppConfigState
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import section.AboutUsSection
+import section.ContactUsSection
 import section.GallerySection
-import section.GetInvolvedSection
 import section.HomeSection
+import section.ServicesSection
 import theme.rememberTypography
 
 @Composable
@@ -85,9 +86,10 @@ private fun VOCContent(current: ContentTab, onTabSelected: () -> Unit) {
         },
         content = { tab ->
             HomeSection(tab == ContentTab.HOME)
-            AboutUsSection(tab == ContentTab.ABOUT_US)
-            GetInvolvedSection(tab == ContentTab.SERVICES)
+            ServicesSection(tab == ContentTab.SERVICES)
             GallerySection(tab == ContentTab.GALLERY)
+            AboutUsSection(tab == ContentTab.ABOUT_US)
+            ContactUsSection(tab == ContentTab.CONTACT_US)
         }
     )
 }
