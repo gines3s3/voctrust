@@ -8,7 +8,7 @@ Website for VOC Social Welfare and Trust developed in Compose Multiplatform for 
 ## Debug on Local
 
 ```shell
-./gradlew :web:jsBrowserRun --continuous
+./gradlew :web:jsBrowserDevelopmentRun --continuous
 ```
 
 ## Run unit test
