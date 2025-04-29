@@ -18,9 +18,9 @@ import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import config.SmallWidth
 import config.isLight
 import model.Member
+import utils.isLargeScreen
 import utils.openWindow
 
 private val smallIconSize = 22.dp
@@ -30,8 +30,8 @@ private val largeIconSize = 34.dp
 internal fun AccountLink(
     link: Member.Link
 ) = BoxWithConstraints {
-    val isLargeScreen = maxWidth > SmallWidth
-    if (isLargeScreen) {
+
+    if (maxWidth.isLargeScreen()) {
         FilterChip(
             true,
             onClick = { openWindow(link.href) },

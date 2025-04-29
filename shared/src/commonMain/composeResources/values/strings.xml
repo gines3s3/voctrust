@@ -11,6 +11,7 @@
     <string name="tab_contact_us">Contact Us</string>
 
     <string name="home_welcome_text">
+        <![CDATA[
 Welcome to VOC Youth Social Welfare Trust!
 
 We are a charitable trust dedicated to social welfare initiatives in Tamil Nadu. Our mission is to uplift underprivileged communities by providing education, healthcare, and support services.
@@ -18,17 +19,24 @@ We are a charitable trust dedicated to social welfare initiatives in Tamil Nadu.
 <b>Key Initiatives:</b>
 • Community development programs
 • Educational support for children
+]]>
     </string>
 
     <string name="about_us_values_vision">
+        <![CDATA[
 <b>Our Team</b>
 A dedicated group of volunteers and professionals work towards achieving our vision.
 
-<b>Values &amp; Vision</b>
+<b>Values and Vision</b>
 
 • Integrity and transparency
 • Commitment to social change
 • Community-driven development
+
+<b>Registered under Section 12A and approved under Section 80G of the Income Tax Act, 1961.</b>
+<b>Registration Nos:</b> 12A: AAETV2179BE20241 | 80G: AAETV2179BF20241
+<b>Established on:</b> 21st December 2023
+]]>
     </string>
 
     <string name="label_love">Love</string>
