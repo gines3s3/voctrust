@@ -2,6 +2,7 @@ package section
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -42,12 +43,12 @@ fun ContactUsSection(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Row(
+        FlowRow(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            maxItemsInEachRow = 2,
         ) {
             MemberContactCard(member = Members.memberDeva)
-            Spacer(modifier = Modifier.width(16.dp))
             MemberContactCard(member = Members.memberGaneshS)
         }
     }
