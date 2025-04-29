@@ -11,7 +11,7 @@ kotlin {
     js {
         browser {
             commonWebpackConfig {
-                outputFileName = "portfoliowebapp.js"
+                outputFileName = "vocwebapp.js"
             }
         }
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
