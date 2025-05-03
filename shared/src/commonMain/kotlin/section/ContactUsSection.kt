@@ -94,7 +94,7 @@ fun MemberContactCard(member: Member) {
             Text(
                 text = member.title,
                 style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.secondary
+                color = MaterialTheme.colorScheme.primary
             )
 
             Spacer(modifier = Modifier.height(8.dp))
