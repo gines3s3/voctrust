@@ -10,7 +10,7 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.buildconfig)
-    kotlin("plugin.serialization") version libs.versions.kotlin
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
