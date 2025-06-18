@@ -11,5 +11,5 @@ object Services {
         description = "Supporting underprivileged children and the elderly with food, clothing, education, and care. We believe in restoring dignity and providing hope through selfless giving."
     )
 
-    val allServices = listOf(animalRescue, templeRestoration, humanitarianAid)
+    val allServices = listOf(animalRescue, humanitarianAid)
 }
