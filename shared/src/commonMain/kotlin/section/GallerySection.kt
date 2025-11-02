@@ -1,17 +1,16 @@
 package section
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.GridItemSpan
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -41,6 +40,7 @@ import utils.ImageLoaderProvider
 import voctrust.shared.generated.resources.Res
 import voctrust.shared.generated.resources.logo_voc
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun GallerySection() {
     var resourceList by remember { mutableStateOf<List<CloudinaryResource>>(emptyList()) }
@@ -74,6 +74,7 @@ internal fun GallerySection() {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun GalleryScreen(
     cloudinaryResourceList: List<CloudinaryResource>,
@@ -101,29 +102,21 @@ fun GalleryScreen(
             CircularProgressIndicator()
         }
     } else {
-        LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 310.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(max = 1200.dp)
-        ) {
-            items(cloudinaryResourceList.withIndex().toList()) { (index, resource) ->
-                GalleryImageItem(
-                    cloudinaryResource = resource,
-                    onClick = { selectedImageIndex = index }
-                )
-            }
-            item(span = { GridItemSpan(maxLineSpan) }) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Button(onClick = onLoadMore) {
-                        Text("Load More")
-                    }
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            FlowRow(
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                cloudinaryResourceList.forEachIndexed { index, resource ->
+                    GalleryImageItem(
+                        cloudinaryResource = resource,
+                        onClick = { selectedImageIndex = index }
+                    )
                 }
+            }
+
+            Button(onClick = onLoadMore, modifier = Modifier.padding(16.dp)) {
+                Text("Load More")
             }
         }
     }

@@ -4,15 +4,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.Card
@@ -36,6 +34,7 @@ import org.jetbrains.compose.resources.painterResource
 import voctrust.shared.generated.resources.Res
 import voctrust.shared.generated.resources.logo_voc
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun ServicesSection() = Column(
     modifier = Modifier.padding(32.dp),
@@ -50,15 +49,11 @@ internal fun ServicesSection() = Column(
                 modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp)
             )
 
-            LazyVerticalGrid(
-                columns = GridCells.Adaptive(minSize = 400.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .heightIn(max = 1000.dp)
+            FlowRow(
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier.fillMaxWidth()
             ) {
-                items(Services.allServices) { service ->
+                Services.allServices.forEach { service ->
                     ServiceCard(service = service)
                 }
             }
@@ -70,8 +65,8 @@ internal fun ServicesSection() = Column(
 fun ServiceCard(service: Service) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp),
+            .padding(8.dp)
+            .fillMaxWidth(0.9f),
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(8.dp)
     ) {
@@ -87,24 +82,25 @@ fun ServiceCard(service: Service) {
             // This box creates the gradient scrim at the bottom
             Box(
                 modifier = Modifier
-                    .align(Alignment.BottomCenter) // Align to the bottom of the parent Box
+                    .align(Alignment.BottomCenter)
                     .fillMaxWidth()
-                    .height(160.dp) // Height of the gradient area
+                    .height(160.dp)
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
                                 Color.Transparent,
-                                Color.Black.copy(alpha = 0.8f) // Fade from transparent to semi-opaque black
+                                Color.Black.copy(alpha = 0.8f)
                             )
                         )
                     )
             )
 
-            // This column holds the text, and is also aligned to the bottom
-            SelectionContainer {
+            // This SelectionContainer now correctly aligns the text column to the bottom
+            SelectionContainer(
+                modifier = Modifier.align(Alignment.BottomCenter)
+            ) {
                 Column(
                     modifier = Modifier
-                        .align(Alignment.BottomCenter)
                         .fillMaxWidth()
                         .padding(16.dp),
                     verticalArrangement = Arrangement.Bottom
