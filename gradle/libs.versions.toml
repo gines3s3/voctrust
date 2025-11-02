@@ -5,6 +5,7 @@ buildconfig = "5.7.0"
 detekt = "1.23.8"
 ktor = "3.3.1"
 coil = "3.3.0"
+voyager = "1.1.0-beta03"
 
 [plugins]
 kotlin-mpp = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -16,6 +17,9 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
 [libraries]
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 
 # Ktor Libraries
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
@@ -30,3 +34,4 @@ coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version.re
 [bundles]
 ktor = ["ktor-core", "ktor-cio", "ktor-contentNegotiation", "ktor-serializationJson"]
 coil = ["coil-compose", "coil-network-ktor"]
+voyager = ["voyager-navigator", "voyager-transitions"]

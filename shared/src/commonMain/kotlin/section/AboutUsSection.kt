@@ -18,8 +18,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import component.Footer
 import config.MaxWidth
 import config.MediumWidth
 import org.jetbrains.compose.resources.painterResource
@@ -35,6 +36,14 @@ internal fun AboutUsSection() {
         modifier = Modifier.fillMaxWidth().padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Text(
+            text = "About Us",
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
+            textAlign = TextAlign.Center
+        )
+
         // This Box constrains the content width on large screens and handles the layout change
         BoxWithConstraints(
             modifier = Modifier.widthIn(max = MaxWidth),
@@ -79,10 +88,5 @@ internal fun AboutUsSection() {
                 }
             }
         }
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        // Footer is now correctly placed at the bottom of the section
-        Footer()
     }
 }

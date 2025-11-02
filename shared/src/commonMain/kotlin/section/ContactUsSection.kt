@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
@@ -28,7 +29,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import component.Footer
 import component.accountchip.AccountLink
 import model.Member
 import model.Members
@@ -41,6 +41,14 @@ internal fun ContactUsSection() = Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Text(
+            text = "Contact Us",
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
+            textAlign = TextAlign.Center
+        )
+
         FlowRow(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
@@ -51,15 +59,13 @@ internal fun ContactUsSection() = Column(
             }
         }
     }
-
-    Footer()
 }
 
 @Composable
 fun MemberContactCard(member: Member) {
     ElevatedCard(
         modifier = Modifier
-            .width(300.dp)
+            .widthIn(max = 300.dp)
             .padding(8.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {

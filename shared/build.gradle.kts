@@ -28,6 +28,7 @@ kotlin {
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
                 implementation(compose.components.resources)
+                implementation(libs.bundles.voyager)
 
                 // Ktor
                 implementation(libs.bundles.ktor)

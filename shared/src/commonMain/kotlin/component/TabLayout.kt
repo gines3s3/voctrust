@@ -14,9 +14,6 @@ import androidx.compose.material.icons.filled.PhotoAlbum
 import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -37,7 +34,6 @@ enum class ContentTab(
     val icon: ImageVector,
     val path: String,
 ) {
-
     HOME(Res.string.tab_home, Icons.Default.Home, ""),
     SERVICES(Res.string.tab_services, Icons.Default.DesignServices, "services"),
     GALLERY(Res.string.tab_gallery, Icons.Default.PhotoAlbum, "gallery"),
@@ -47,43 +43,37 @@ enum class ContentTab(
 
 @Composable
 internal fun TabLayout(
-    current: ContentTab,
-    tabState: MutableState<ContentTab> = remember { mutableStateOf(current) },
-    tabs: @Composable (MutableState<ContentTab>) -> Unit,
-    content: @Composable (ContentTab) -> Unit,
-) = Column(
-    modifier = Modifier.fillMaxWidth(),
-    horizontalAlignment = Alignment.CenterHorizontally,
+    selectedTab: ContentTab,
+    onTabSelected: (ContentTab) -> Unit,
+    tabs: @Composable () -> Unit,
+    content: @Composable () -> Unit,
 ) {
-    BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
-        val density = LocalDensity.current
-        val mediumWidthPx = with(density) { MediumWidth.toPx() }
-        val currentWidthPx = with(density) { maxWidth.toPx() }
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+            val density = LocalDensity.current
+            val mediumWidthPx = with(density) { MediumWidth.toPx() }
+            val currentWidthPx = with(density) { maxWidth.toPx() }
 
-        if (currentWidthPx >= mediumWidthPx) {
-            // Large screen - use TabRow for evenly distributed tabs
-            PrimaryTabRow(
-                selectedTabIndex = tabState.value.ordinal,
-                modifier = Modifier.fillMaxWidth().widthIn(max = MaxWidth)
-            ) {
-                tabs(tabState)
+            if (currentWidthPx >= mediumWidthPx) {
+                PrimaryTabRow(
+                    selectedTabIndex = selectedTab.ordinal,
+                    modifier = Modifier.fillMaxWidth().widthIn(max = MaxWidth)
+                ) { tabs() }
+            } else {
+                PrimaryScrollableTabRow(
+                    selectedTabIndex = selectedTab.ordinal,
+                    edgePadding = 8.dp,
+                    tabs = { tabs() },
+                    modifier = Modifier.fillMaxWidth()
+                )
             }
-        } else {
-            // Small screen - use ScrollableTabRow for scrolling
-            PrimaryScrollableTabRow(
-                selectedTabIndex = tabState.value.ordinal,
-                edgePadding = 8.dp,
-                tabs = { tabs(tabState) },
-                modifier = Modifier.fillMaxWidth()
-            )
         }
+
+        Box(
+            contentAlignment = Alignment.TopCenter,
+        ) { content() }
     }
-
-    Box(
-        contentAlignment = Alignment.TopCenter,
-    ) { content(tabState.value) }
 }
-
-internal expect fun MutableState<ContentTab>.handleTabChange(
-    next: ContentTab,
-)

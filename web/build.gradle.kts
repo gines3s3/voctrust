@@ -27,6 +27,8 @@ kotlin {
                 implementation(project(":shared"))
                 implementation(compose.runtime)
                 implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(libs.bundles.voyager)
             }
         }
     }

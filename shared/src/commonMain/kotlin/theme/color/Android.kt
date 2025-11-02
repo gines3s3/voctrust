@@ -3,10 +3,10 @@ package theme.color
 import androidx.compose.ui.graphics.Color
 
 object Android {
-    val PrimaryLight = Color(0xFF4CAF50) // Green 500
+    val PrimaryLight = Color(0xFFFABF22) // VOC Orange
     val OnPrimaryLight = Color(0xFFFFFFFF) // White
-    val PrimaryContainerLight = Color(0xFFC8E6C9) // Green 200
-    val OnPrimaryContainerLight = Color(0xFF2E7D32) // Green 700
+    val PrimaryContainerLight = Color(0xFFFFF0C7) // Light Orange
+    val OnPrimaryContainerLight = Color(0xFFD9A00A) // Dark Orange
     val SecondaryLight = Color(0xFF03DAC6) // Teal 200
     val OnSecondaryLight = Color(0xFF000000) // Black
     val SecondaryContainerLight = Color(0xFF018786) // Teal 700
@@ -30,7 +30,7 @@ object Android {
     val ScrimLight = Color(0xFF000000) // Black
     val InverseSurfaceLight = Color(0xFF121212) // Grey 900
     val InverseOnSurfaceLight = Color(0xFFFFFFFF) // White
-    val InversePrimaryLight = Color(0xFFC8E6C9) // Green 200
+    val InversePrimaryLight = Color(0xFFFFF0C7) // Light Orange
     val SurfaceDimLight = Color(0xFFFAFAFA) // Grey 50
     val SurfaceBrightLight = Color(0xFFFFFFFF) // White
     val SurfaceContainerLowestLight = Color(0xFFFFFFFF) // White
@@ -39,9 +39,9 @@ object Android {
     val SurfaceContainerHighLight = Color(0xFFE0E0E0) // Grey 300
     val SurfaceContainerHighestLight = Color(0xFFBDBDBD) // Grey 400
 
-    val PrimaryDark = Color(0xFFC8E6C9) // Green 200
-    val OnPrimaryDark = Color(0xFF2E7D32) // Green 700
-    val PrimaryContainerDark = Color(0xFF4CAF50) // Green 500
+    val PrimaryDark = Color(0xFFFABF22) // VOC Orange
+    val OnPrimaryDark = Color(0xFF212121) // Grey 900
+    val PrimaryContainerDark = Color(0xFFD9A00A) // Dark Orange
     val OnPrimaryContainerDark = Color(0xFFFFFFFF) // White
     val SecondaryDark = Color(0xFF03DAC6) // Teal 200
     val OnSecondaryDark = Color(0xFF000000) // Black
@@ -66,7 +66,7 @@ object Android {
     val ScrimDark = Color(0xFF000000) // Black
     val InverseSurfaceDark = Color(0xFFFFFFFF) // White
     val InverseOnSurfaceDark = Color(0xFF121212) // Grey 900
-    val InversePrimaryDark = Color(0xFF4CAF50) // Green 500
+    val InversePrimaryDark = Color(0xFFD9A00A) // Dark Orange
     val SurfaceDimDark = Color(0xFF212121) // Grey 900
     val SurfaceBrightDark = Color(0xFF424242) // Grey 800
     val SurfaceContainerLowestDark = Color(0xFF121212) // Grey 900
