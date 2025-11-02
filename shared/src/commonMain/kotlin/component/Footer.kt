@@ -30,7 +30,7 @@ internal fun ColumnScope.Footer() = Footer(
 private const val RepositoryHref = "https://github.com/gines3s3/voctrust"
 
 @Composable
-private fun Footer(
+internal fun Footer(
     modifier: Modifier = Modifier,
 ) = Column(
     horizontalAlignment = Alignment.CenterHorizontally,

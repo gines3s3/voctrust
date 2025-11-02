@@ -1,7 +1,4 @@
-import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.compose.ExperimentalComposeLibrary
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -14,8 +11,6 @@ plugins {
 }
 
 kotlin {
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs { browser() }
     js { browser() }
 
     applyDefaultHierarchyTemplate()
@@ -49,18 +44,6 @@ kotlin {
                 implementation(compose.uiTest)
             }
         }
-
-        val jsWasmMain by creating {
-            dependsOn(commonMain.get())
-        }
-
-        jsMain {
-            dependsOn(jsWasmMain)
-        }
-
-        wasmJsMain {
-            dependsOn(jsWasmMain)
-        }
     }
 }
 
@@ -71,13 +54,4 @@ buildConfig {
         "LAST_MODIFIED_DATE_TIME",
         SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(Date()),
     )
-}
-
-val wasmJsBrowserTest by tasks.existing(KotlinJsTest::class) {
-    reports.junitXml.required.set(true)
-    testLogging {
-        showExceptions = true
-        showStandardStreams = true
-        events = setOf(TestLogEvent.FAILED, TestLogEvent.PASSED)
-    }
 }

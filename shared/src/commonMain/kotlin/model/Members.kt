@@ -50,4 +50,6 @@ object Members {
             ),
         )
     )
+
+    val allMembers = listOf(memberDeva, memberGaneshS, memberMuruganS)
 }

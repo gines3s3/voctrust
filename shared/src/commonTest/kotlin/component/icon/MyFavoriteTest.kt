@@ -3,7 +3,6 @@ package component.icon
 import androidx.compose.ui.test.*
 import org.jetbrains.compose.resources.imageResource
 import voctrust.shared.generated.resources.Res
-import voctrust.shared.generated.resources.kotlin
 import kotlin.test.Test
 
 private const val CONTENT_DESCRIPTION = "test"

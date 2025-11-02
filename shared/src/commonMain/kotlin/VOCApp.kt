@@ -85,11 +85,13 @@ private fun VOCContent(current: ContentTab, onTabSelected: () -> Unit) {
             }
         },
         content = { tab ->
-            HomeSection(tab == ContentTab.HOME)
-            ServicesSection(tab == ContentTab.SERVICES)
-            GallerySection(tab == ContentTab.GALLERY)
-            AboutUsSection(tab == ContentTab.ABOUT_US)
-            ContactUsSection(tab == ContentTab.CONTACT_US)
+            when (tab) {
+                ContentTab.HOME -> HomeSection()
+                ContentTab.SERVICES -> ServicesSection()
+                ContentTab.GALLERY -> GallerySection()
+                ContentTab.ABOUT_US -> AboutUsSection()
+                ContentTab.CONTACT_US -> ContactUsSection()
+            }
         }
     )
 }

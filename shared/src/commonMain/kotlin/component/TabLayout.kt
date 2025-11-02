@@ -11,8 +11,8 @@ import androidx.compose.material.icons.filled.ContactPhone
 import androidx.compose.material.icons.filled.DesignServices
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.PhotoAlbum
-import androidx.compose.material3.ScrollableTabRow
-import androidx.compose.material3.TabRow
+import androidx.compose.material3.PrimaryScrollableTabRow
+import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -62,7 +62,7 @@ internal fun TabLayout(
 
         if (currentWidthPx >= mediumWidthPx) {
             // Large screen - use TabRow for evenly distributed tabs
-            TabRow(
+            PrimaryTabRow(
                 selectedTabIndex = tabState.value.ordinal,
                 modifier = Modifier.fillMaxWidth().widthIn(max = MaxWidth)
             ) {
@@ -70,7 +70,7 @@ internal fun TabLayout(
             }
         } else {
             // Small screen - use ScrollableTabRow for scrolling
-            ScrollableTabRow(
+            PrimaryScrollableTabRow(
                 selectedTabIndex = tabState.value.ordinal,
                 edgePadding = 8.dp,
                 tabs = { tabs(tabState) },

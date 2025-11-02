@@ -1,14 +1,19 @@
 package section
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -16,12 +21,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
-import component.AnimatedSection
 import component.Footer
 import component.ImageViewerDialog
 import kotlinx.coroutines.launch
@@ -33,10 +38,7 @@ import voctrust.shared.generated.resources.Res
 import voctrust.shared.generated.resources.logo_voc
 
 @Composable
-internal fun GallerySection(
-    visible: Boolean,
-) = AnimatedSection(
-    visible,
+internal fun GallerySection() = Column(
     modifier = Modifier.padding(32.dp),
 ) {
     var resourceList by remember { mutableStateOf<List<CloudinaryResource>>(emptyList()) }
@@ -45,6 +47,7 @@ internal fun GallerySection(
 
     GalleryScreen(
         cloudinaryResourceList = resourceList,
+        isLoading = isLoading,
         onLoadMore = {
             if (nextCursor != null && !isLoading) {
                 isLoading = true
@@ -73,6 +76,7 @@ internal fun GallerySection(
 @Composable
 fun GalleryScreen(
     cloudinaryResourceList: List<CloudinaryResource>,
+    isLoading: Boolean,
     onLoadMore: () -> Unit
 ) {
     val listState = rememberLazyGridState()
@@ -102,25 +106,50 @@ fun GalleryScreen(
             }
     }
 
-    LazyVerticalGrid(
-        columns = GridCells.Adaptive(minSize = 310.dp),
-        state = listState,
-        modifier = Modifier
-            .fillMaxWidth()
-            .heightIn(max = 600.dp)
-    ) {
-        items(cloudinaryResourceList.withIndex().toList()) { (index, resource) ->
-            GalleryImageItem(
-                cloudinaryResource = resource,
-                onClick = { selectedImageIndex = index }
-            )
+    if (isLoading && cloudinaryResourceList.isEmpty()) {
+        // Initial loader
+        Box(
+            modifier = Modifier.fillMaxSize().heightIn(min = 600.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            CircularProgressIndicator()
+        }
+    } else {
+        LazyVerticalGrid(
+            columns = GridCells.Adaptive(minSize = 310.dp),
+            state = listState,
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(max = 600.dp)
+        ) {
+            items(cloudinaryResourceList.withIndex().toList()) { (index, resource) ->
+                GalleryImageItem(
+                    cloudinaryResource = resource,
+                    onClick = { selectedImageIndex = index }
+                )
+            }
+            if (isLoading && cloudinaryResourceList.isNotEmpty()) {
+                // Loading more indicator
+                item(span = { GridItemSpan(maxLineSpan) }) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                }
+            }
         }
     }
 }
 
 @Composable
-fun GalleryImageItem(cloudinaryResource: CloudinaryResource,
-                     onClick: () -> Unit) {
+fun GalleryImageItem(
+    cloudinaryResource: CloudinaryResource,
+    onClick: () -> Unit
+) {
     AsyncImage(
         imageLoader = ImageLoaderProvider.getImageLoader(LocalPlatformContext.current),
         model = cloudinaryResource.thumbnailUrl ?: cloudinaryResource.previewUrl

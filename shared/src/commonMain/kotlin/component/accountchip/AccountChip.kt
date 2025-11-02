@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -33,8 +34,13 @@ internal fun AccountLink(
 
     if (maxWidth.isLargeScreen()) {
         FilterChip(
-            true,
+            selected = true,
             onClick = { openWindow(link.href) },
+            colors = FilterChipDefaults.filterChipColors(
+                selectedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
+                selectedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                selectedLeadingIconColor = MaterialTheme.colorScheme.onSurfaceVariant
+            ),
             leadingIcon = {
                 ServiceIcon(link.linkType.getIconContent(), smallIconSize)
             },

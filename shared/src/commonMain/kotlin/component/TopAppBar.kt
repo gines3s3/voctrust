@@ -13,7 +13,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.platform.testTag
@@ -67,7 +66,6 @@ internal fun TopAppBar(
                 Icon(
                     painterResource(Res.drawable.logo_voc),
                     contentDescription = "VOC Logo",
-                    modifier = Modifier.scale(0.15f),
                     tint = null
                 )
             }
