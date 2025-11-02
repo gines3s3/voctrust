@@ -38,7 +38,10 @@ fun VOCApp() {
 
     val selectedTabIndex by remember {
         derivedStateOf {
-            if (!scrollState.canScrollForward) {
+            // Default to the first tab if the list isn't ready.
+            if (scrollState.layoutInfo.visibleItemsInfo.isEmpty()) {
+                0
+            } else if (!scrollState.canScrollForward) {
                 sectionIndexes.lastIndex
             } else {
                 sectionIndexes.indexOf(scrollState.firstVisibleItemIndex).coerceAtLeast(0)
