@@ -3,10 +3,8 @@ package section
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -33,7 +31,6 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import component.ImageViewerDialog
-import config.MediumWidth
 import model.CloudinaryResource
 import org.jetbrains.compose.resources.painterResource
 import screen.GalleryScreen
@@ -43,40 +40,36 @@ import voctrust.shared.generated.resources.Res
 import voctrust.shared.generated.resources.logo_voc
 
 @Composable
-internal fun GallerySection() {
+internal fun GallerySection(isMobile: Boolean) {
     var resourceList by remember { mutableStateOf<List<CloudinaryResource>>(emptyList()) }
     var isLoading by remember { mutableStateOf(false) }
     val navigator = LocalNavigator.currentOrThrow
+    val imagePreviewSize = if (isMobile) 4 else 6
 
-    BoxWithConstraints {
-        val isMobile = maxWidth < MediumWidth
-        val imagePreviewSize = if (isMobile) 4 else 6
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Gallery",
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
+            textAlign = TextAlign.Center
+        )
 
-        Column(
-            modifier = Modifier.padding(32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "Gallery",
-                style = MaterialTheme.typography.headlineMedium,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
-                textAlign = TextAlign.Center
-            )
+        GalleryScreen(
+            cloudinaryResourceList = resourceList,
+            isLoading = isLoading,
+            onLoadMore = { navigator.push(GalleryScreen) }
+        )
+    }
 
-            GalleryScreen(
-                cloudinaryResourceList = resourceList,
-                isLoading = isLoading,
-                onLoadMore = { navigator.push(GalleryScreen) }
-            )
-        }
-
-        LaunchedEffect(Unit) {
-            isLoading = true
-            val response = CloudinaryApi.fetchMedia(CloudinaryApi.MediaType.GALLERY)
-            resourceList = response.resources.take(imagePreviewSize)
-            isLoading = false
-        }
+    LaunchedEffect(Unit) {
+        isLoading = true
+        val response = CloudinaryApi.fetchMedia(CloudinaryApi.MediaType.GALLERY)
+        resourceList = response.resources.take(imagePreviewSize)
+        isLoading = false
     }
 }
 
@@ -108,30 +101,15 @@ fun GalleryScreen(
         }
     } else {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            BoxWithConstraints {
-                val imageSize = 310.dp
-                val itemsPerRow = (maxWidth / imageSize).toInt().coerceAtLeast(1)
-                val chunkedResources = cloudinaryResourceList.chunked(itemsPerRow)
-
-                Column {
-                    chunkedResources.forEach { rowItems ->
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.Center
-                        ) {
-                            rowItems.forEachIndexed { index, resource ->
-                                GalleryImageItem(
-                                    cloudinaryResource = resource,
-                                    onClick = { selectedImageIndex = index }
-                                )
-                            }
-                            if (rowItems.size < itemsPerRow) {
-                                for (i in 0 until (itemsPerRow - rowItems.size)) {
-                                    Spacer(modifier = Modifier.size(imageSize))
-                                }
-                            }
-                        }
-                    }
+            FlowRow(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+            ) {
+                cloudinaryResourceList.forEachIndexed { index, resource ->
+                    GalleryImageItem(
+                        cloudinaryResource = resource,
+                        onClick = { selectedImageIndex = index }
+                    )
                 }
             }
 

@@ -49,12 +49,14 @@ fun VOCApp() {
         }
     }
 
-    AppScaffold(
-        scrollState = scrollState,
-        header = { width ->
-            Column(modifier = Modifier.width(width)) {
-                TopAppBar()
-                BoxWithConstraints {
+    BoxWithConstraints {
+        val isMobile = maxWidth < MediumWidth
+
+        AppScaffold(
+            scrollState = scrollState,
+            header = { width ->
+                Column(modifier = Modifier.width(width)) {
+                    TopAppBar()
                     val tabs = @Composable {
                         ContentTab.entries.forEachIndexed { index, tab ->
                             Tab(
@@ -72,7 +74,7 @@ fun VOCApp() {
                         }
                     }
 
-                    if (maxWidth < MediumWidth) {
+                    if (isMobile) {
                         PrimaryScrollableTabRow(
                             selectedTabIndex = selectedTabIndex,
                         ) {
@@ -86,17 +88,17 @@ fun VOCApp() {
                         }
                     }
                 }
-            }
-        },
-    ) {
-        item { ImageCarousel() } // Index 0
+            },
+        ) {
+            item { ImageCarousel() } // Index 0
 
-        item { HomeSection() } // Index 1
-        item { ServicesSection() } // Index 2
-        item { GallerySection() } // Index 3
-        item { AboutUsSection() } // Index 4
-        item { ContactUsSection() } // Index 5
+            item { HomeSection() } // Index 1
+            item { ServicesSection() } // Index 2
+            item { GallerySection(isMobile = isMobile) } // Index 3
+            item { AboutUsSection() } // Index 4
+            item { ContactUsSection() } // Index 5
 
-        item { Footer() }
+            item { Footer() }
+        }
     }
 }

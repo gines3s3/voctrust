@@ -1,8 +1,8 @@
 package section
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -45,22 +45,12 @@ internal fun ContactUsSection() = Column(
         modifier = Modifier.padding(bottom = 24.dp)
     )
 
-    BoxWithConstraints {
-        val cardWidth = 300.dp
-        val itemsPerRow = (maxWidth / cardWidth).toInt().coerceAtLeast(1)
-        val chunkedMembers = Members.allMembers.chunked(itemsPerRow)
-
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            chunkedMembers.forEach { rowItems ->
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    rowItems.forEach { member ->
-                        MemberContactCard(member = member)
-                    }
-                }
-            }
+    FlowRow(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center
+    ) {
+        Members.allMembers.forEach { member ->
+            MemberContactCard(member = member)
         }
     }
 }
