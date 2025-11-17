@@ -90,7 +90,7 @@ fun VOCApp() {
                 }
             },
         ) {
-            item { ImageCarousel() } // Index 0
+            item { ImageCarousel(isMobile = isMobile) } // Index 0
 
             item { HomeSection() } // Index 1
             item { ServicesSection() } // Index 2

@@ -9,18 +9,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Setup Java
-        uses: actions/setup-java@v4
+
+      # The gradle-build-action handles Java setup and caching
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@v3
         with:
-          distribution: zulu
-          java-version: 17
-          
-      - name: Build
-        run: './gradlew :web:jsBrowserDistribution'
-      
+          arguments: ':web:jsBrowserDistribution'
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: public
+          folder: web/build/dist/js/productionExecutable
           branch: gh-pages

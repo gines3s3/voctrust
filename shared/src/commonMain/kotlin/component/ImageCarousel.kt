@@ -34,34 +34,37 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import kotlinx.coroutines.delay
+import model.CloudinaryResource
 import utils.CloudinaryApi
 import utils.ImageLoaderProvider
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ImageCarousel() {
-    var mediaUrls by remember { mutableStateOf<List<String>>(emptyList()) }
-    val pagerState = rememberPagerState { mediaUrls.size }
+fun ImageCarousel(isMobile: Boolean) {
+    var mediaResources by remember { mutableStateOf<List<CloudinaryResource>>(emptyList()) }
+    val pagerState = rememberPagerState { mediaResources.size }
     val isDragged by pagerState.interactionSource.collectIsDraggedAsState()
 
     // Fetch media from Cloudinary
     LaunchedEffect(Unit) {
-        mediaUrls = CloudinaryApi.fetchMedia(CloudinaryApi.MediaType.CAROUSEL).resources.map { it.secureUrl }
+        mediaResources = CloudinaryApi.fetchMedia(CloudinaryApi.MediaType.CAROUSEL).resources
     }
 
     // Auto-scroll that resumes after manual interaction
-    LaunchedEffect(Unit) {
-        while (true) {
-            delay(5000L)
-            // Only advance if the user is not interacting with the pager
-            if (!isDragged) {
-                val nextPage = (pagerState.currentPage + 1) % pagerState.pageCount
-                pagerState.animateScrollToPage(nextPage)
+    LaunchedEffect(pagerState.pageCount) {
+        if (pagerState.pageCount > 0) {
+            while (true) {
+                delay(5000L)
+                // Only advance if the user is not interacting with the pager
+                if (!isDragged) {
+                    val nextPage = (pagerState.currentPage + 1) % pagerState.pageCount
+                    pagerState.animateScrollToPage(nextPage)
+                }
             }
         }
     }
 
-    if (mediaUrls.isEmpty()) {
+    if (mediaResources.isEmpty()) {
         Box(modifier = Modifier.fillMaxWidth().height(500.dp), contentAlignment = Alignment.Center) {
             CircularProgressIndicator()
         }
@@ -79,15 +82,21 @@ fun ImageCarousel() {
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier.fillMaxSize()
-            ) {
-                val currentMediaUrl = mediaUrls[it]
+            ) { page ->
+                val currentMedia = mediaResources[page]
+                val imageUrl = if (isMobile) {
+                    currentMedia.thumbnailUrl ?: currentMedia.previewUrl ?: currentMedia.secureUrl
+                } else {
+                    currentMedia.secureUrl
+                }
+
                 var isLoading by remember { mutableStateOf(true) }
                 var isError by remember { mutableStateOf(false) }
 
                 Box(modifier = Modifier.fillMaxSize()) {
                     AsyncImage(
                         imageLoader = ImageLoaderProvider.getImageLoader(LocalPlatformContext.current),
-                        model = currentMediaUrl,
+                        model = imageUrl,
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize(),
@@ -129,7 +138,7 @@ fun ImageCarousel() {
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier.align(Alignment.BottomCenter).padding(16.dp)
             ) {
-                mediaUrls.forEachIndexed { index, _ ->
+                mediaResources.forEachIndexed { index, _ ->
                     Box(
                         modifier = Modifier
                             .size(8.dp)
