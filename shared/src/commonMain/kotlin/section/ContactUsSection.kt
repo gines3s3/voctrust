@@ -1,8 +1,8 @@
 package section
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
@@ -29,33 +28,38 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import component.accountchip.AccountLink
+import component.AccountLink
 import model.Member
 import model.Members
 
 @Composable
 internal fun ContactUsSection() = Column(
-    modifier = Modifier.padding(32.dp),
+    modifier = Modifier.fillMaxWidth().padding(32.dp),
+    horizontalAlignment = Alignment.CenterHorizontally
 ) {
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "Contact Us",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
-            textAlign = TextAlign.Center
-        )
+    Text(
+        text = "Contact Us",
+        style = MaterialTheme.typography.headlineMedium,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+        modifier = Modifier.padding(bottom = 24.dp)
+    )
 
-        FlowRow(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            maxItemsInEachRow = 3,
-        ) {
-            Members.allMembers.forEach { member ->
-                MemberContactCard(member = member)
+    BoxWithConstraints {
+        val cardWidth = 300.dp
+        val itemsPerRow = (maxWidth / cardWidth).toInt().coerceAtLeast(1)
+        val chunkedMembers = Members.allMembers.chunked(itemsPerRow)
+
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            chunkedMembers.forEach { rowItems ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    rowItems.forEach { member ->
+                        MemberContactCard(member = member)
+                    }
+                }
             }
         }
     }
@@ -65,7 +69,7 @@ internal fun ContactUsSection() = Column(
 fun MemberContactCard(member: Member) {
     ElevatedCard(
         modifier = Modifier
-            .widthIn(max = 300.dp)
+            .width(300.dp)
             .padding(8.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {

@@ -1,4 +1,4 @@
-package component.accountchip
+package component
 
 import VOCTag
 import androidx.compose.foundation.layout.Box

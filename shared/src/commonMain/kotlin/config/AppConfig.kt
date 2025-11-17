@@ -8,7 +8,7 @@ import androidx.compose.runtime.remember
 
 data class AppConfig(
     val theme: ColorTheme = ColorTheme.AndroidLight,
-    val lang: Lang = Lang.JA,
+    val lang: Lang = Lang.EN,
 )
 
 class AppConfigState private constructor(
@@ -16,7 +16,7 @@ class AppConfigState private constructor(
 ) : MutableState<AppConfig> by state {
     constructor(
         theme: ColorTheme = ColorTheme.AndroidLight,
-        lang: Lang = Lang.JA,
+        lang: Lang = Lang.EN,
     ) : this(mutableStateOf(AppConfig(theme, lang)))
 
     var theme: ColorTheme
@@ -38,7 +38,7 @@ fun rememberAppConfigState(
 ) = remember(useDarkTheme) {
     AppConfigState(
         theme = if (useDarkTheme) ColorTheme.AndroidDark else ColorTheme.AndroidLight,
-        lang = Lang.JA,
+        lang = Lang.EN,
     )
 }
 

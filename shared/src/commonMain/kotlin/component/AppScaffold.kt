@@ -27,7 +27,7 @@ internal fun AppScaffold(
 ) = Surface(Modifier.fillMaxSize()) {
     BoxWithConstraints {
         val width = when {
-            MinWidth <= maxWidth && maxWidth < MaxWidth -> maxWidth
+            maxWidth in MinWidth..<MaxWidth -> maxWidth
             maxWidth < MinWidth -> MinWidth
             else -> MaxWidth
         }

@@ -10,21 +10,14 @@
     <string name="tab_gallery">Gallery</string>
     <string name="tab_contact_us">Contact Us</string>
 
-    <string name="home_welcome_text">
-        <![CDATA[
-Welcome to VOC Youth Social Welfare Trust!
-
-We are a charitable trust dedicated to social welfare initiatives in Tamil Nadu. Our mission is to uplift underprivileged communities by providing education, healthcare, and support services.
+    <string name="home_welcome_text"><![CDATA[We are a charitable trust dedicated to social welfare initiatives in Tamil Nadu. Our mission is to uplift underprivileged communities by providing education, healthcare, and support services.
 
 <b>Key Initiatives:</b>
 • Community development programs
 • Educational support for children
-]]>
-    </string>
+• Animal welfare and rescue operations]]></string>
 
-    <string name="about_us_values_vision">
-        <![CDATA[
-<b>Registered under Section 12A and approved under Section 80G of the Income Tax Act, 1961.</b>
+    <string name="about_us_values_vision"><![CDATA[<b>Registered under Section 12A and approved under Section 80G of the Income Tax Act, 1961.</b>
 <b>Registration Nos:</b> 12A: AAETV2179BE20241 | 80G: AAETV2179BF20241
 <b>Established on:</b> 21st December 2023
 
@@ -32,33 +25,7 @@ We are a charitable trust dedicated to social welfare initiatives in Tamil Nadu.
 A dedicated group of volunteers and professionals work towards achieving our vision.
 
 <b>Values and Vision</b>
-
 • Integrity and transparency
 • Commitment to social change
-• Community-driven development
-]]>
-    </string>
-
-    <string name="label_love">Love</string>
-
-    <string name="work_kotlin_material_ui_headline">Kotlin Material-UI</string>
-    <string name="work_kotlin_material_ui_description">※UNMAINTAINED\n\nThis is a wrapper framework for Kotlin/JS for Material-UI, a UI framework for React. \n\nMore than 100 types of UI components and functions for theme customization provided by Material-UI could be used instantly on Kotlin/JS.</string>
-
-    <string name="work_droidkaigi_2019_headline">DroidKaigi 2019</string>
-    <string name="work_droidkaigi_2019_description">I talked "Get a Cool Unit Test Environment with Spek2+MockK+JaCoCo!" at DroidKaigi 2019.</string>
-
-    <string name="work_kotlinfest_2019_headline">Kotlin Fest 2019</string>
-    <string name="work_kotlinfest_2019_description">I talked "I want to develop the frontend of a web application by Kotlin! -The trail of web pages made with Kotlin/JS-" at Kotlin Fest 2019.</string>
-
-    <string name="work_kotlinfest_2022_headline">Kotlin Fest 2022</string>
-    <string name="work_kotlinfest_2022_description">I talked "I want to develop the frontend of a web application by Jetpack Compose! -Does Compose for Web dream of modern web applications?-" at Kotlin Fest 2022.</string>
-
-    <string name="work_kotlinfest_2024_headline">Kotlin Fest 2024</string>
-    <string name="work_kotlinfest_2024_description">I talked "I want to write every app in Compose Multiplatform! -How we create 'that feature' in native apps-" at Kotlin Fest 2024.</string>
-
-    <string name="work_colormaster_headline">COLOR M@STER</string>
-    <string name="work_colormaster_description">This application provides various functions for the image colors of characters in THE iDOLM@STER. Currently, two functions, "Search" and "Penlight", are implemented. \n\nThis Application is developed by Kotlin Multiplatform.</string>
-
-    <string name="work_noctiluca_headline">Noctiluca</string>
-    <string name="work_noctiluca_description">※Under Development\n\nThis application is a multi-platform client of Mastodon.</string>
+• Community-driven development]]></string>
 </resources>
