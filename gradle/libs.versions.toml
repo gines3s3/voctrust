@@ -5,7 +5,7 @@ buildconfig = "5.7.1"
 detekt = "1.23.8"
 ktor = "3.3.2"
 coil = "3.3.0"
-voyager = "1.0.1"
+voyager = "1.1.0-beta03"
 ben-manes-versions = "0.53.0"
 
 [plugins]
