@@ -1,11 +1,12 @@
 [versions]
 kotlin = "2.2.21"
 compose = "1.9.2"
-buildconfig = "5.7.0"
+buildconfig = "5.7.1"
 detekt = "1.23.8"
-ktor = "3.3.1"
+ktor = "3.3.2"
 coil = "3.3.0"
-voyager = "1.1.0-beta03"
+voyager = "1.0.1"
+ben-manes-versions = "0.53.0"
 
 [plugins]
 kotlin-mpp = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -14,6 +15,7 @@ jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+versions = { id = "com.github.ben-manes.versions", version.ref = "ben-manes-versions" }
 
 [libraries]
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }

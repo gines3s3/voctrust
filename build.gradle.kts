@@ -1,3 +1,4 @@
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
 
@@ -8,6 +9,22 @@ plugins {
     alias(libs.plugins.buildconfig) apply false
 
     alias(libs.plugins.detekt)
+    alias(libs.plugins.versions)
+}
+
+tasks.withType<DependencyUpdatesTask> {
+    fun isUnstable(version: String): Boolean {
+        val upperCaseVersion = version.uppercase()
+        // A version is considered unstable if it contains any of these keywords.
+        return listOf("ALPHA", "BETA", "RC", "SNAPSHOT", "PREVIEW", "MILESTONE", "M", "EAP").any {
+            upperCaseVersion.contains(it)
+        }
+    }
+
+    rejectVersionIf {
+        // Reject the new version if it's considered unstable.
+        isUnstable(candidate.version)
+    }
 }
 
 val wasmJsBrowserTestReport by tasks.registering(TestReport::class) {
