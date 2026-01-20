@@ -1,12 +1,13 @@
 [versions]
-kotlin = "2.2.21"
-compose = "1.9.2"
-buildconfig = "5.7.1"
+kotlin = "2.3.0"
+compose = "1.9.0"
+buildconfig = "6.0.7"
 detekt = "1.23.8"
-ktor = "3.3.2"
+ktor = "3.3.3"
 coil = "3.3.0"
 voyager = "1.1.0-beta03"
 ben-manes-versions = "0.53.0"
+lucide = "1.1.0"
 
 [plugins]
 kotlin-mpp = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -33,7 +34,18 @@ ktor-serializationJson = { module = "io.ktor:ktor-serialization-kotlinx-json", v
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 
+# Compose Libraries
+compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose" }
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose" }
+compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose" }
+compose-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "compose" }
+compose-uiTest = { module = "org.jetbrains.compose.ui:ui-test", version.ref = "compose" }
+
+# Lucide Icons
+lucide-icons = { module = "com.composables:icons-lucide", version.ref = "lucide" }
+
 [bundles]
 ktor = ["ktor-core", "ktor-cio", "ktor-contentNegotiation", "ktor-serializationJson"]
 coil = ["coil-compose", "coil-network-ktor"]
 voyager = ["voyager-navigator", "voyager-transitions"]
+compose = ["compose-runtime", "compose-foundation", "compose-material3", "compose-resources", "lucide-icons"]

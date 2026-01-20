@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.selection.SelectionContainer
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -28,6 +26,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.MapPin
 import component.AccountLink
 import model.Member
 import model.Members
@@ -103,7 +103,7 @@ fun MemberContactCard(member: Member) {
                     horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Icon(
-                        imageVector = Icons.Default.LocationOn,
+                        imageVector = LucideIcons.MapPin,
                         contentDescription = "Location",
                         modifier = Modifier.size(16.dp),
                         tint = MaterialTheme.colorScheme.primary

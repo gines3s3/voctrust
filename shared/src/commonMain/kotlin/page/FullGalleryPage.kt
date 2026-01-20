@@ -11,8 +11,6 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -35,6 +33,8 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
+import com.composables.icons.lucide.ArrowLeft
+import com.composables.icons.lucide.LucideIcons
 import component.ImageViewerDialog
 import kotlinx.coroutines.flow.filter
 import model.CloudinaryResource
@@ -92,7 +92,7 @@ fun FullGalleryPage() {
                 title = { Text("Gallery") },
                 navigationIcon = {
                     IconButton(onClick = { navigator.pop() }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(LucideIcons.ArrowLeft, contentDescription = "Back")
                     }
                 }
             )

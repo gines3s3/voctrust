@@ -6,10 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -23,6 +19,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import coil3.compose.AsyncImage
+import com.composables.icons.lucide.ArrowLeft
+import com.composables.icons.lucide.ArrowRight
+import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.X
 
 @Composable
 fun ImageViewerDialog(
@@ -45,7 +45,7 @@ fun ImageViewerDialog(
         ) {
             // Close button at top right
             IconCircleButton(
-                icon = Icons.Default.Close,
+                icon = LucideIcons.X,
                 contentDescription = "Close",
                 onClick = onDismiss,
                 modifier = Modifier
@@ -66,7 +66,7 @@ fun ImageViewerDialog(
                 ) {
                     if (currentIndex > 0) {
                         IconCircleButton(
-                            icon = Icons.AutoMirrored.Filled.ArrowBack,
+                            icon = LucideIcons.ArrowLeft,
                             contentDescription = "Previous",
                             onClick = { currentIndex-- }
                         )
@@ -96,7 +96,7 @@ fun ImageViewerDialog(
                 ) {
                     if (currentIndex < imageUrls.size - 1) {
                         IconCircleButton(
-                            icon = Icons.AutoMirrored.Filled.ArrowForward,
+                            icon = LucideIcons.ArrowRight,
                             contentDescription = "Next",
                             onClick = { currentIndex++ }
                         )

@@ -1,12 +1,12 @@
 package component
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
-import androidx.compose.material.icons.filled.ContactPhone
-import androidx.compose.material.icons.filled.DesignServices
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.PhotoAlbum
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.composables.icons.lucide.House
+import com.composables.icons.lucide.Image
+import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.PhoneCall
+import com.composables.icons.lucide.User
+import com.composables.icons.lucide.Wrench
 import org.jetbrains.compose.resources.StringResource
 import voctrust.shared.generated.resources.Res
 import voctrust.shared.generated.resources.tab_about_us
@@ -20,9 +20,9 @@ enum class ContentTab(
     val icon: ImageVector,
     val path: String,
 ) {
-    HOME(Res.string.tab_home, Icons.Default.Home, ""),
-    SERVICES(Res.string.tab_services, Icons.Default.DesignServices, "services"),
-    GALLERY(Res.string.tab_gallery, Icons.Default.PhotoAlbum, "gallery"),
-    ABOUT_US(Res.string.tab_about_us, Icons.Default.AccountBox, "about-us"),
-    CONTACT_US(Res.string.tab_contact_us, Icons.Default.ContactPhone, "contact-us"),
+    HOME(Res.string.tab_home, LucideIcons.House, ""),
+    SERVICES(Res.string.tab_services, LucideIcons.Wrench, "services"),
+    GALLERY(Res.string.tab_gallery, LucideIcons.Image, "gallery"),
+    ABOUT_US(Res.string.tab_about_us, LucideIcons.User, "about-us"),
+    CONTACT_US(Res.string.tab_contact_us, LucideIcons.PhoneCall, "contact-us"),
 }

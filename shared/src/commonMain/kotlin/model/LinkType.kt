@@ -1,13 +1,13 @@
 package model
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.Mail
+import com.composables.icons.lucide.Phone
 import org.jetbrains.compose.resources.imageResource
 import voctrust.shared.generated.resources.Res
 import voctrust.shared.generated.resources.instagram
@@ -29,7 +29,7 @@ sealed class LinkType {
     data object Phone : LinkType() {
         override fun getIconContent(): @Composable () -> Unit = {
             Icon(
-                imageVector = Icons.Default.Phone,
+                imageVector = LucideIcons.Phone,
                 contentDescription = "Phone",
                 modifier = Modifier.fillMaxSize()
 
@@ -40,7 +40,7 @@ sealed class LinkType {
     data object Email : LinkType() {
         override fun getIconContent(): @Composable () -> Unit = {
             Icon(
-                imageVector = Icons.Default.Email,
+                imageVector = LucideIcons.Mail,
                 contentDescription = "Email",
                 modifier = Modifier.fillMaxSize()
             )

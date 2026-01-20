@@ -3,9 +3,6 @@ package component
 import VOCTag
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DarkMode
-import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -18,6 +15,9 @@ import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.Moon
+import com.composables.icons.lucide.Sun
 import config.AppConfigState
 import config.ColorTheme
 import config.LocalAppConfigState
@@ -108,4 +108,4 @@ private fun AppConfigState.switchTheme() {
 
 @Composable
 private fun AppConfigState.themeIcon() =
-    if (theme.schema.isLight()) Icons.Default.DarkMode else Icons.Default.LightMode
+    if (theme.schema.isLight()) LucideIcons.Moon else LucideIcons.Sun

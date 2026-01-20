@@ -1,4 +1,3 @@
-import org.jetbrains.compose.ExperimentalComposeLibrary
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -15,19 +14,9 @@ kotlin {
 
     applyDefaultHierarchyTemplate()
     sourceSets {
-        all {
-            languageSettings {
-                optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
-            }
-        }
-
         commonMain {
             dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material3)
-                implementation(compose.materialIconsExtended)
-                implementation(compose.components.resources)
+                implementation(libs.bundles.compose)
                 implementation(libs.bundles.voyager)
 
                 // Ktor
@@ -41,8 +30,7 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
-                @OptIn(ExperimentalComposeLibrary::class)
-                implementation(compose.uiTest)
+                implementation(libs.compose.uiTest)
             }
         }
     }
