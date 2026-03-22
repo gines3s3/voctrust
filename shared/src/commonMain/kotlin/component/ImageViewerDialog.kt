@@ -21,7 +21,7 @@ import androidx.compose.ui.window.DialogProperties
 import coil3.compose.AsyncImage
 import com.composables.icons.lucide.ArrowLeft
 import com.composables.icons.lucide.ArrowRight
-import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.Lucide
 import com.composables.icons.lucide.X
 
 @Composable
@@ -45,7 +45,7 @@ fun ImageViewerDialog(
         ) {
             // Close button at top right
             IconCircleButton(
-                icon = LucideIcons.X,
+                icon = Lucide.X,
                 contentDescription = "Close",
                 onClick = onDismiss,
                 modifier = Modifier
@@ -66,7 +66,7 @@ fun ImageViewerDialog(
                 ) {
                     if (currentIndex > 0) {
                         IconCircleButton(
-                            icon = LucideIcons.ArrowLeft,
+                            icon = Lucide.ArrowLeft,
                             contentDescription = "Previous",
                             onClick = { currentIndex-- }
                         )
@@ -96,7 +96,7 @@ fun ImageViewerDialog(
                 ) {
                     if (currentIndex < imageUrls.size - 1) {
                         IconCircleButton(
-                            icon = LucideIcons.ArrowRight,
+                            icon = Lucide.ArrowRight,
                             contentDescription = "Next",
                             onClick = { currentIndex++ }
                         )

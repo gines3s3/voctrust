@@ -15,7 +15,7 @@ import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.Lucide
 import com.composables.icons.lucide.Moon
 import com.composables.icons.lucide.Sun
 import config.AppConfigState
@@ -108,4 +108,4 @@ private fun AppConfigState.switchTheme() {
 
 @Composable
 private fun AppConfigState.themeIcon() =
-    if (theme.schema.isLight()) LucideIcons.Moon else LucideIcons.Sun
+    if (theme.schema.isLight()) Lucide.Moon else Lucide.Sun

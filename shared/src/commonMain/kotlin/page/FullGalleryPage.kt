@@ -34,7 +34,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import com.composables.icons.lucide.ArrowLeft
-import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.Lucide
 import component.ImageViewerDialog
 import kotlinx.coroutines.flow.filter
 import model.CloudinaryResource
@@ -92,7 +92,7 @@ fun FullGalleryPage() {
                 title = { Text("Gallery") },
                 navigationIcon = {
                     IconButton(onClick = { navigator.pop() }) {
-                        Icon(LucideIcons.ArrowLeft, contentDescription = "Back")
+                        Icon(Lucide.ArrowLeft, contentDescription = "Back")
                     }
                 }
             )

@@ -5,7 +5,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.Lucide
 import com.composables.icons.lucide.Mail
 import com.composables.icons.lucide.Phone
 import org.jetbrains.compose.resources.imageResource
@@ -29,7 +29,7 @@ sealed class LinkType {
     data object Phone : LinkType() {
         override fun getIconContent(): @Composable () -> Unit = {
             Icon(
-                imageVector = LucideIcons.Phone,
+                imageVector = Lucide.Phone,
                 contentDescription = "Phone",
                 modifier = Modifier.fillMaxSize()
 
@@ -40,7 +40,7 @@ sealed class LinkType {
     data object Email : LinkType() {
         override fun getIconContent(): @Composable () -> Unit = {
             Icon(
-                imageVector = LucideIcons.Mail,
+                imageVector = Lucide.Mail,
                 contentDescription = "Email",
                 modifier = Modifier.fillMaxSize()
             )

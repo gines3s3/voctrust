@@ -3,7 +3,7 @@ package component
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.composables.icons.lucide.House
 import com.composables.icons.lucide.Image
-import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.Lucide
 import com.composables.icons.lucide.PhoneCall
 import com.composables.icons.lucide.User
 import com.composables.icons.lucide.Wrench
@@ -20,9 +20,9 @@ enum class ContentTab(
     val icon: ImageVector,
     val path: String,
 ) {
-    HOME(Res.string.tab_home, LucideIcons.House, ""),
-    SERVICES(Res.string.tab_services, LucideIcons.Wrench, "services"),
-    GALLERY(Res.string.tab_gallery, LucideIcons.Image, "gallery"),
-    ABOUT_US(Res.string.tab_about_us, LucideIcons.User, "about-us"),
-    CONTACT_US(Res.string.tab_contact_us, LucideIcons.PhoneCall, "contact-us"),
+    HOME(Res.string.tab_home, Lucide.House, ""),
+    SERVICES(Res.string.tab_services, Lucide.Wrench, "services"),
+    GALLERY(Res.string.tab_gallery, Lucide.Image, "gallery"),
+    ABOUT_US(Res.string.tab_about_us, Lucide.User, "about-us"),
+    CONTACT_US(Res.string.tab_contact_us, Lucide.PhoneCall, "contact-us"),
 }

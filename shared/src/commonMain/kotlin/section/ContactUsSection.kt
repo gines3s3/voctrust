@@ -26,7 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.composables.icons.lucide.LucideIcons
+import com.composables.icons.lucide.Lucide
 import com.composables.icons.lucide.MapPin
 import component.AccountLink
 import model.Member
@@ -103,7 +103,7 @@ fun MemberContactCard(member: Member) {
                     horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Icon(
-                        imageVector = LucideIcons.MapPin,
+                        imageVector = Lucide.MapPin,
                         contentDescription = "Location",
                         modifier = Modifier.size(16.dp),
                         tint = MaterialTheme.colorScheme.primary
