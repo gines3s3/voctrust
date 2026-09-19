@@ -1,8 +1,7 @@
 package model
 
 object Members {
-
-    val memberDeva = Member (
+    val memberDeva = Member(
         name = "Devakumar C",
         title = "TRUSTEE",
         location = "Cuddalore, Tamil Nadu",
@@ -25,7 +24,7 @@ object Members {
         )
     )
 
-    val memberGaneshS = Member (
+    val memberGaneshS = Member(
         name = "Ganesh S",
         title = "FOUNDER CUM MANAGING TRUSTEE",
         location = "Cuddalore, Tamil Nadu",
@@ -38,7 +37,7 @@ object Members {
         )
     )
 
-    val memberMuruganS = Member (
+    val memberMuruganS = Member(
         name = "Murugan S",
         title = "TRUSTEE",
         location = "Cuddalore, Tamil Nadu",

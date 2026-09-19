@@ -31,7 +31,6 @@ private val largeIconSize = 34.dp
 internal fun AccountLink(
     link: Member.Link
 ) = BoxWithConstraints {
-
     if (maxWidth.isLargeScreen()) {
         FilterChip(
             selected = true,

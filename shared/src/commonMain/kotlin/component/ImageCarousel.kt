@@ -144,8 +144,11 @@ fun ImageCarousel(isMobile: Boolean) {
                             .size(8.dp)
                             .clip(CircleShape)
                             .background(
-                                if (index == pagerState.currentPage) MaterialTheme.colorScheme.surface
-                                else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
+                                if (index == pagerState.currentPage) {
+                                    MaterialTheme.colorScheme.surface
+                                } else {
+                                    MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
+                                }
                             )
                             .clickable { /* Pager handles this */ }
                     )

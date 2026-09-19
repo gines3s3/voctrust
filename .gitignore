@@ -8,3 +8,6 @@ build
 .firebase
 
 public/
+local.properties
+lint-reports/
+

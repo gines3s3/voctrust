@@ -1,12 +1,12 @@
 [versions]
 kotlin = "2.3.20"
 compose = "1.9.0"
-buildconfig = "6.0.9"
+buildconfig = "6.1.1"
 detekt = "1.23.8"
 ktor = "3.4.1"
 coil = "3.4.0"
 voyager = "1.1.0-beta03"
-ben-manes-versions = "0.53.0"
+ben-manes-versions = "0.64.0"
 lucide = "1.1.0"
 
 [plugins]

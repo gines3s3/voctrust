@@ -70,7 +70,6 @@ internal fun TopAppBar(
             }
         },
         actions = {
-
             Members.memberDeva.links.firstOrNull { it.linkType == LinkType.Phone }
                 ?.let { memberLink ->
                     AccountLink(memberLink)
